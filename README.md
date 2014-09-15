@@ -1,5 +1,5 @@
 # odeint #
-An easily extensible ODE integrator in C. Mainly a learning project to practice with pointers, memory allocation and data structures (used to emulate an integrator "class").
+An easily extensible ODE integrator in C. Mainly a learning project for practicing with pointers, memory allocation and data structures (used to emulate an integrator "class"); not really that efficient.
 
 ### Currently implemented ###
 Method (struct_name):
@@ -30,7 +30,9 @@ Integrate the Lorenz attractor using RK4, with the following parameters:
 * verbose mode    : yes (might be a big bottleneck for program speed)
 * write to file   : yes [filename="lorenz.dat"]
 
+'''bash
 $ ./src/integrate rk4 lorenz -d 0.01 -t 0.0 -x 0.01 -x 0.01 -x 0.01 -n 10000 -v -w
+'''
 
 Then one could visualize the results with gnuplot, for example:
 gnuplot> splot "lorenz.dat" using 2:3:4 with lines
@@ -40,7 +42,9 @@ gnuplot> splot "lorenz.dat" using 2:3:4 with lines
 ### Real-time plotting ###
 We can plot the time-series for each variable in real-time by piping the integration data into the Python plotting script, e.g.:
 
+'''bash
 $ ./integrate rk4 lotka -d 0.05 -t 0.0 -x 10.0 -x 5.0 -n 1000 -v | ./plot_stdin_timeseries.py
+'''
 
 ### Adding systems ###
 1. Declare the function in ./include/eoms.h
