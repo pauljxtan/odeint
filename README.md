@@ -1,5 +1,5 @@
 # odeint #
-An easily extensible ODE integrator in C. Mainly a learning project for practicing with pointers, memory allocation and data structures (used to emulate an integrator "class"); not really that efficient.
+An easily extensible ODE integrator in C. Mainly a learning project for practicing with pointers, memory allocation and data structures (used to emulate an integrator "class"); not really optimized for efficiency.
 
 ### Currently implemented ###
 Method (struct_name):
