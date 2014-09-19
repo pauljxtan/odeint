@@ -56,6 +56,5 @@ $ ./integrate rk4 lotka -d 0.05 -t 0.0 -x 10.0 -x 5.0 -n 1000 -v | ./plot_stdin_
 ### To-do ###
 * Add "kwargs" functionality for passing additional parameters (e.g. constants) to integrator
 
-### Remarks ###
-* The integrator does __not__ store past system states, only the latest one (unlike odeint-cpp); all states are (optionally) dumped into ASCII files. I figured there wasn't much point in saving intermediate steps, since I don't plan to do any post-simulation analysis/manipulation/visualization/etc. within the program. (But that might change in the future.)
-* I hope to incorporate adaptive methods soon; stay tuned.
+### Future ###
+* Adaptive methods upcoming...
