@@ -1,5 +1,5 @@
 \documentclass{report}
-\usepackage{amsfonts, amsmath, amssymb}
+\usepackage{amsfonts, amsmath, amssymb, hyperref}
 \renewcommand{\chaptername}{}
 \begin{document}
 
@@ -27,6 +27,18 @@ and the rate equations are
 
 \chapter{Damped spring}
 
+The damped spring is described by the simple equation
+
+\begin{equation}
+  m\frac{\mathrm{d}^2x}{\mathrm{d}t^2} = -kx + -c\dot{x}
+\end{equation}
+
+where $k$ is the spring constant and $c$ is the damping coefficient. We can trivially write this as the following 1st-order ODEs:
+
+\begin{align}
+  \frac{\mathrm{d}x}{\mathrm{d}t} &= v \\
+  \frac{\mathrm{d}v}{\mathrm{d}t} &= -kx + -cv
+\end{align}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
