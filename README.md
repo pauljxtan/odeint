@@ -28,10 +28,11 @@ Integrate the Lorenz attractor using RK4, with the following parameters:
 * initial state   : x=0.01, y=0.01, z=0.01
 * number of steps : 10000
 * verbose mode    : yes (might be a big bottleneck for program speed)
+* print parameters: yes
 * write to file   : yes [filename="lorenz.dat"]
 
 ```bash
-$ ./src/integrate rk4 lorenz -d 0.01 -t 0.0 -x 0.01 -x 0.01 -x 0.01 -n 10000 -v -w
+$ ./src/integrate rk4 lorenz -d 0.01 -t 0.0 -x 0.01 -x 0.01 -x 0.01 -n 10000 -v -y -w
 ```
 
 Then one could visualize the results with gnuplot, for example:
