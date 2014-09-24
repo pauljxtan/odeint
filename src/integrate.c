@@ -30,6 +30,7 @@ int main(int argc, char * argv[]) {
     double delta;
     int n_steps;
     int verbose = 0;
+    int print_params = 0;
     int write = 0;
     //char outfile[sizeof(argv[1]) / sizeof(argv[1][0]) + 4];
     char outfile[20];
@@ -57,7 +58,7 @@ int main(int argc, char * argv[]) {
 
     /* Parse arguments */
     opterr = 0;
-    while ((c = getopt(argc, argv, "d:t:x:n:e:vw")) != -1)
+    while ((c = getopt(argc, argv, "d:t:x:n:e:vyw")) != -1)
         switch (c) {
             case 'd':
                 dt = atof(optarg);
@@ -77,6 +78,8 @@ int main(int argc, char * argv[]) {
             case 'v':
                 verbose = 1;
                 break;
+            case 'y':
+                print_params = 1;
             case 'w':
                 write = 1;
                 break;
@@ -91,18 +94,20 @@ int main(int argc, char * argv[]) {
         return EXIT_FAILURE;
     }
     
-    printf("using: %s\n", method);
-    printf("integrating: %s\n", name);
-    printf("n_vars = %d\n", n_vars);
-    printf("dt = %f\n", dt);
-    printf("t0 = %f\n", t0);
-    for (i = 0; i < n_vars; i++) {
-        printf("X0[%d] = %f\n", i, X0[i]);
+    if (print_params) {
+        printf("using: %s\n", method);
+        printf("integrating: %s\n", name);
+        printf("n_vars = %d\n", n_vars);
+        printf("dt = %f\n", dt);
+        printf("t0 = %f\n", t0);
+        for (i = 0; i < n_vars; i++) {
+            printf("X0[%d] = %f\n", i, X0[i]);
+        }
+        printf("n_steps = %d\n", n_steps);
+        printf("verbose = %s\n", verbose ? "yes" : "no");
+        printf("write = %s\n", write ? "yes" : "no");
+        printf("outfile = %s\n", outfile);
     }
-    printf("n_steps = %d\n", n_steps);
-    printf("verbose = %s\n", verbose ? "yes" : "no");
-    printf("write = %s\n", write ? "yes" : "no");
-    printf("outfile = %s\n", outfile);
 
     poutfile = fopen(outfile, "w");
 
@@ -126,7 +131,7 @@ int main(int argc, char * argv[]) {
 }
 
 void print_usage() {
-    printf("Usage: integrate method name -d num -t num -x num [-x num]... -n num [-e num] [-v] [-w]\n");
+    printf("Usage: integrate method name -d num -t num -x num [-x num]... -n num [-e num] [-v] [-y] [-w]\n");
 }
 
 func_ptr lookup_F(char * name) {
