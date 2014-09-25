@@ -22,11 +22,21 @@ systems = {"Lorenz"        : "lorenz",
 class OdeIntGui:
     def __init__(self, master):
         self.frame = Frame(master)
-        self.frame.grid(row=0, column=0)
+        self.frame.grid()
 
-        self.method = StringVar(self.frame)
+        # Make subframes
+        self.frame_menus = Frame(self.frame)
+        self.frame_canvas = Frame(self.frame)
+        self.frame_buttons = Frame(self.frame)
+
+        # Arrange subframes
+        self.frame_menus.grid(row=0)
+        self.frame_canvas.grid(row=1)
+        self.frame_buttons.grid(row=2)
+
+        self.method = StringVar(self.frame_menus)
         self.method.set(methods.keys()[2])
-        self.system = StringVar(self.frame)
+        self.system = StringVar(self.frame_menus)
         self.system.set(systems.keys()[0])
 
         # TODO: Add entry widgets
@@ -35,36 +45,40 @@ class OdeIntGui:
         self.X0 = (0.01, 0.01, 0.01)
         self.n = 10000
 
-        self.label_methods = Label(self.frame, text="Method:")
-        self.menu_methods = OptionMenu(self.frame, self.method,
+        self.label_methods = Label(self.frame_menus, text="Method:")
+        self.menu_methods = OptionMenu(self.frame_menus, self.method,
                                        *methods.keys(),
                                        command=self.menu_onclick)
 
-        self.label_systems = Label(self.frame, text="System:")
-        self.menu_systems = OptionMenu(self.frame, self.system,
+        self.label_systems = Label(self.frame_menus, text="System:")
+        self.menu_systems = OptionMenu(self.frame_menus, self.system,
                                        *systems.keys(),
                                        command=self.menu_onclick)
 
-        self.figure = Figure(figsize=(7.8, 5))
-        self.canvas = FigureCanvasTkAgg(self.figure, master=master)
+        self.figure = Figure(figsize=(7.8, 5.1))
+        self.canvas = FigureCanvasTkAgg(self.figure, master=self.frame_canvas)
 
-        self.button_plot = Button(self.frame, text="Plot", command=self.plot)
+        self.button_plot = Button(self.frame_buttons, text="Plot",
+                                  command=self.plot)
 
-        self.button_clear = Button(self.frame, text="Clear",
+        self.button_clear = Button(self.frame_buttons, text="Clear",
                                    command=self.clear_figure)
 
-        self.button_quit = Button(self.frame, text="Quit",
+        self.button_quit = Button(self.frame_buttons, text="Quit",
                                   command=self.frame.quit)
         
-        # Arrange widgets
+        #--- Arrange widgets
         self.label_methods.grid(row=0, column=0)
         self.menu_methods.grid(row=0, column=1)
         self.label_systems.grid(row=0, column=2)
         self.menu_systems.grid(row=0, column=3)
+
         self.canvas.get_tk_widget().grid(row=2, column=0)
+
         self.button_plot.grid(row=3, column=0)
         self.button_clear.grid(row=3, column=1)
         self.button_quit.grid(row=3, column=4)
+        #---
 
     def plot(self):
         cmd = ("../src/integrate %s %s -d %s -t %s "
@@ -117,7 +131,7 @@ def center(win):
 
 def main():
     root = Tk()
-    root.geometry('640x640')
+    root.geometry('640x480')
     center(root)
     odeintgui = OdeIntGui(root)
     root.mainloop()
