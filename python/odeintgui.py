@@ -1,5 +1,9 @@
 #!/usr/bin/python
 
+# TODO:
+#     allow user to choose what variables to plot
+#     (setting custom labels+entries for each system might be necessary)
+
 import matplotlib
 # use the Tk backend
 matplotlib.use('TkAgg')
@@ -18,13 +22,33 @@ methods = {
         }
 
 systems = {
-        "Lorenz"        : 'lorenz',
-        "Lotka-Volterra": 'lotka',
+        "Brusselator"               : 'brusselator',
+        "Chen system"               : 'chen',
+        "Damped spring"             : 'damped_spring',
+        "Double pendulum"           : 'double_pendulum',
+        "Duffing equation"          : 'duffing',
+        "Lorenz system"             : 'lorenz',
+        "Lotka-Volterra equations"  : 'lotka',
+        "Parrot system"             : 'parrot',
+        "Rossler system"            : 'rossler',
+        "Symmetric top"             : 'symmetric_top',
+        "Van der Pol oscillator"    : 'vanderpol',
+        "2-D Van der Pol oscillator": 'vanderpol2d',
         }
 
 dims = {
-        "Lorenz": 3,
-        "Lotka-Volterra" : 2,
+        "Brusselator"               : 2,
+        "Chen system"               : 3,
+        "Damped spring"             : 2,
+        "Double pendulum"           : 4,
+        "Duffing equation"          : 2,
+        "Lorenz system"             : 3,
+        "Lotka-Volterra equations"  : 2,
+        "Parrot system"             : 2,
+        "Rossler system"            : 3,
+        "Symmetric top"             : 6,
+        "Van der Pol oscillator"    : 2,
+        "2-D Van der Pol oscillator": 2,
         }
 
 class OdeIntGui:
@@ -46,9 +70,9 @@ class OdeIntGui:
 
         #--- String variables
         self.method = StringVar(self.frame_menus)
-        self.method.set(methods.keys()[2])
+        self.method.set("4th-order Runge-Kutta")
         self.system = StringVar(self.frame_menus)
-        self.system.set(systems.keys()[0])
+        self.system.set("Lorenz system")
         #---
 
         #--- Double variables
@@ -57,6 +81,9 @@ class OdeIntGui:
         self.X0a = DoubleVar(self.frame_entries)
         self.X0b = DoubleVar(self.frame_entries)
         self.X0c = DoubleVar(self.frame_entries)
+        self.X0d = DoubleVar(self.frame_entries)
+        self.X0e = DoubleVar(self.frame_entries)
+        self.X0f = DoubleVar(self.frame_entries)
         #---
 
         #--- Integer variables
@@ -75,7 +102,7 @@ class OdeIntGui:
         # Put the "number of steps" entry here too
         self.label_n = Label(self.frame_menus, text="Number of steps:")
         self.entry_n = Entry(self.frame_menus, textvariable=self.n,
-                             width=9)
+                             width=5)
 
         self.label_methods.grid(row=0, column=0)
         self.menu_methods.grid(row=0, column=1)
@@ -88,21 +115,25 @@ class OdeIntGui:
         #--- Entry subframe
         self.label_dt = Label(self.frame_entries, text="Step size:")
         self.entry_dt = Entry(self.frame_entries, textvariable=self.dt,
-                              width=9)
+                              width=5)
 
         self.label_t0 = Label(self.frame_entries, text="Initial time:")
         self.entry_t0 = Entry(self.frame_entries, textvariable=self.t0,
-                              width=9)
+                              width=5)
 
         self.label_X0 = Label(self.frame_entries, text="Initial state:")
         self.entry_X0 = [Entry(self.frame_entries, textvariable=self.X0a,
-                               width=9),
+                               width=5),
                          Entry(self.frame_entries, textvariable=self.X0b,
-                               width=9)]
-        if dims[self.system.get()] == 3:
-            self.entry_X0.append(Entry(self.frame_entries,
-                                       textvariable=self.X0c,
-                                       width=9))
+                               width=5),
+                         Entry(self.frame_entries, textvariable=self.X0c,
+                               width=5),
+                         Entry(self.frame_entries, textvariable=self.X0d,
+                               width=5),
+                         Entry(self.frame_entries, textvariable=self.X0e,
+                               width=5),
+                         Entry(self.frame_entries, textvariable=self.X0f,
+                               width=5),]
 
         self.label_dt.grid(row=0, column=0)
         self.entry_dt.grid(row=0, column=1)
@@ -111,8 +142,14 @@ class OdeIntGui:
         self.label_X0.grid(row=0, column=4)
         self.entry_X0[0].grid(row=0, column=5)
         self.entry_X0[1].grid(row=0, column=6)
-        if dims[self.system.get()] == 3:
+        if dims[self.system.get()] >= 3:
             self.entry_X0[2].grid(row=0, column=7)
+        if dims[self.system.get()] >= 4:
+            self.entry_X0[3].grid(row=0, column=8)
+        if dims[self.system.get()] >= 5:
+            self.entry_X0[4].grid(row=0, column=9)
+        if dims[self.system.get()] >= 6:
+            self.entry_X0[5].grid(row=0, column=10)
         #---
 
         #--- Canvas subframe
@@ -139,11 +176,14 @@ class OdeIntGui:
         cmd = ("../src/integrate %s %s -d %s -t %s "
                % (methods[self.method.get()], systems[self.system.get()],
                   self.dt.get(), self.t0.get()))
-        if dims[self.system.get()] == 2:
+        if dims[self.system.get()] >= 2:
             cmd += "-x %s -x %s " % (self.X0a.get(), self.X0b.get())
-        elif dims[self.system.get()] == 3:
-            cmd += "-x %s -x %s -x %s " % (self.X0a.get(), self.X0b.get(),
-                                           self.X0c.get())
+        if dims[self.system.get()] >= 3:
+            cmd += "-x %s " % self.X0c.get()
+        if dims[self.system.get()] >= 4:
+            cmd += "-x %s " % self.X0d.get()
+        if dims[self.system.get()] >= 6:
+            cmd += "-x %s -x %s " % (self.X0e.get(), self.X0e.get())
         cmd += "-n %s -v " % self.n.get()
         print cmd
         
@@ -161,23 +201,42 @@ class OdeIntGui:
                 data.append(map(float, line.split(" ")))
         arrays = zip(*data)
         t = arrays[0]
-        if len(arrays) == 3:
+        # TODO: fix this
+        # ===== HACK ALERT =====
+        if len(arrays[1:]) == 2:
             self.graph = self.figure.add_subplot(111, projection='3d')
             self.graph.plot(arrays[1], arrays[2])
-        elif len(arrays) == 4:
+        elif len(arrays[1:]) == 3:
             self.graph = self.figure.add_subplot(111, projection='3d')
             self.graph.plot(arrays[1], arrays[2], arrays[3])
+        #--- Especially need to fix these
+        elif len(arrays[1:]) == 4:
+            self.graph = self.figure.add_subplot(111, projection='3d')
+            self.graph.plot(arrays[1], arrays[2], arrays[3])
+        elif len(arrays[1:]) == 6:
+            self.graph = self.figure.add_subplot(111, projection='3d')
+            self.graph.plot(arrays[1], arrays[2], arrays[3])
+        #---
         self.canvas.draw()
 
     def menu_onclick(self, event):
-        print "Integrate %s using %s" % (self.system.get(),
-                                         self.method.get())
+        print "%s with %s" % (self.system.get(), self.method.get())
         
         # Adjust number of state variables
-        if dims[self.system.get()] == 2:
+        self.entry_X0[0].grid(row=0, column=5)
+        self.entry_X0[1].grid(row=0, column=6)
+        self.entry_X0[2].grid(row=0, column=7)
+        self.entry_X0[3].grid(row=0, column=8)
+        self.entry_X0[4].grid(row=0, column=9)
+        self.entry_X0[5].grid(row=0, column=10)
+        if dims[self.system.get()] < 6:
+            self.entry_X0[5].grid_forget()
+        if dims[self.system.get()] < 5:
+            self.entry_X0[4].grid_forget()
+        if dims[self.system.get()] < 4:
+            self.entry_X0[3].grid_forget()
+        if dims[self.system.get()] < 3:
             self.entry_X0[2].grid_forget()
-        elif dims[self.system.get()] == 3:
-            self.entry_X0[2].grid(row=0, column=7)
 
         self.clear_figure()
 
@@ -196,6 +255,7 @@ def center(win):
 def main():
     root = Tk()
     root.geometry('640x480')
+    root.title("odeint GUI")
     center(root)
     odeintgui = OdeIntGui(root)
     root.mainloop()
