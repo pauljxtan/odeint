@@ -54,6 +54,9 @@ $ ./integrate rk4 lotka -d 0.05 -t 0.0 -x 10.0 -x 5.0 -n 1000 -v | ./plot_stdin_
 4. Define the function in ./src/eoms.c
 5. All set!
 
+### GUI ###
+A Tkinter-based GUI is located in ./python/ (under construction). Requires matplotlib with the Tk backend.
+
 ### To-do ###
 * Add "kwargs" functionality for passing additional parameters (e.g. constants) to integrator
 
