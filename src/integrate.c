@@ -109,35 +109,43 @@ int main(int argc, char * argv[]) {
         printf("outfile = %s\n", outfile);
     }
 
-    poutfile = fopen(outfile, "w");
+    if (write) {
+        poutfile = fopen(outfile, "w");
+    }
 
     /* Do integration */
     if (strcmp("rk4", method) == 0) {
-        rk4 * prk4 = rk4_new(n_vars, dt, t0, X0, lookup_F(name), verbose, write, poutfile);
+        rk4 * prk4 = rk4_new(n_vars, dt, t0, X0, lookup_F(name), verbose, write,
+                             poutfile);
         rk4_integrate(prk4, n_steps);
-        fclose(poutfile);
     }
+
     else if (strcmp("fweuler", method) == 0) { 
-        fweuler * pfweuler = fweuler_new(n_vars, dt, t0, X0, lookup_F(name), verbose, write, poutfile);
+        fweuler * pfweuler = fweuler_new(n_vars, dt, t0, X0, lookup_F(name),
+                                         verbose, write, poutfile);
         fweuler_integrate(pfweuler, n_steps);
     }
+
     else if (strcmp("bulsto", method) == 0) { 
         //delta = 1e-6;
-        bulsto * pbulsto = bulsto_new(n_vars, dt, t0, X0, lookup_F(name), delta, verbose, write, poutfile);
+        bulsto * pbulsto = bulsto_new(n_vars, dt, t0, X0, lookup_F(name),
+                                      delta, verbose, write, poutfile);
         bulsto_integrate(pbulsto, n_steps);
     }
+
+    if (write) fclose(poutfile);
 
     return EXIT_SUCCESS;
 }
 
 void print_usage() {
-    printf("Usage: integrate method name -d num -t num -x num [-x num]... -n num [-e num] [-v] [-y] [-w]\n");
+    printf("Usage: integrate method name -d num -t num -x num [-x num]... "
+           "-n num [-e num] [-v] [-y] [-w]\n");
 }
 
 func_ptr lookup_F(char * name) {
     function_table * ptable;
-    for (ptable = func_table; ptable->name != NULL; ptable++)
-    {
+    for (ptable = func_table; ptable->name != NULL; ptable++) {
         if (strcmp(ptable->name, name) == 0)
             return ptable->F;
     }
@@ -148,8 +156,7 @@ func_ptr lookup_F(char * name) {
 
 int lookup_n_vars(char * name) {
     function_table *ptable;
-    for (ptable = func_table; ptable->name != NULL; ptable++)
-    {
+    for (ptable = func_table; ptable->name != NULL; ptable++) {
         if (strcmp(ptable->name, name) == 0)
             return ptable->n_vars;
     }
