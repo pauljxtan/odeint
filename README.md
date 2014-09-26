@@ -1,5 +1,7 @@
 # odeint #
-An easily extensible ODE integrator in C. Mainly a learning project for practicing with pointers, memory allocation and data structures (used to emulate an integrator "class"); not really optimized for efficiency.
+An easily extensible ODE integrator in C. Mainly a learning project for practicing with pointers, memory allocation and data structures (used to emulate an integrator "class"); not really optimized for efficiency. 
+
+Documented for Doxygen in Qt style -- see http://pauljxtan.github.io/odeint.
 
 ### Currently implemented ###
 Method (struct_name):
