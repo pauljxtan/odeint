@@ -1,46 +1,53 @@
 #ifndef FWEULER_H
 #define FWEULER_H
 
+/*! @file */
+
+//! A forward-Euler integrator.
 typedef struct fweuler {
-    /* Number of spatial variables */
+    //! Number of spatial variables
     int n_vars;
-    /* Length of timestep */
+    //! Length of timestep
     double dt;
-    /* Elapsed time */
+    //! Elapsed time
     double t;
-    /* Current state (at time t) */
+    //! Current state (at time t)
     double * X;
-    /* ODE vector function */
+    //! ODE vector function
     double * (*F)(double, double []);
-    /* Verbose flag */
+    //! Verbose flag
     int verbose;
-    /* Write flag */
+    //! Write flag
     int write;
-    /* Output file pointer */
+    //! Output file pointer
     FILE * poutfile;
-    /* Number of steps so far */
+    //! Number of steps so far
     int n_steps;
-    /* Arrays for storing intermediate data */
+    //! Array for storing intermediate data
     double t_inc;
+    //! Array for storing intermediate data
     double * X_inc;
+    //! Array for storing intermediate data
     double t_step;
+    //! Array for storing intermediate data
     double * X_step;
+    //! Array for storing intermediate data
 } fweuler;
 
-/* fweuler_new: "Constructor" for forward Euler integrator */
+//! "Constructor" for forward-Euler integrator
 fweuler * fweuler_new(int, double, double, double [],
                       double * (*)(double, double[]), int, int, FILE *);
 
-/* fweuler_print_state: Print the state at time t */
+//! Prints state at time t
 void fweuler_print_state(fweuler *);
 
-/* fweuler_write_state: Write the state at time t */
+//! Writes state at time t to file
 void fweuler_write_state(fweuler *);
 
-/* fweuler_step: Integrate over one timestep */
+//! Integrates system over one timestep
 void fweuler_step(fweuler *);
 
-/* fweuler_integrate: Integrate over multiple timesteps */
+//! Integrates system over multiple timesteps
 void fweuler_integrate(fweuler *, int);
 
 #endif /* FWEULER.H */

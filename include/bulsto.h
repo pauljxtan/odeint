@@ -1,51 +1,58 @@
 #ifndef BULSTO_H
 #define BULSTO_H
 
-/* bulsto: A Bulirsch-Stoer integrator */
+/*! @file */
+
+//! A Bulirsch-Stoer integrator
 typedef struct bulsto {
-    /* Number of spatial variables */
+    //! Number of spatial variables
     int n_vars;
-    /* Length of timestep */
+    //! Length of timestep
     double dt;
-    /* Elapsed time */
+    //! Elapsed time
     double t;
-    /* Current state (at time t) */
+    //! Current state (at time t)
     double * X;
-    /* ODE vector function */
+    //! ODE vector function
     double * (*F)(double, double []);
-    /* Target accuracy */
+    //! Target accuracy
     double delta;
-    /* Verbose flag */
+    //! Verbose flag
     int verbose;
-    /* Write flag */
+    //! Write flag
     int write;
-    /* Output file pointer */
+    //! Output file pointer
     FILE * poutfile;
-    /* Number of steps so far */
+    //! Number of steps so far
     int n_steps;
-    /* Arrays for storing intermediate data */
+    //! Array for storing intermediate data
     double * epsilon;
+    //! Array for storing intermediate data
     double * X1;
+    //! Array for storing intermediate data
     double * X2;
+    //! Array for storing intermediate data
     double * X_inc;
+    //! Array for storing intermediate data
     double t_step;
+    //! Array for storing intermediate data
     double * X_step;
 } bulsto;
 
-/* bulsto_new: "Constructor" for Bulirsch-Stoer integrator */
+//! "Constructor" for Bulirsch-Stoer integrator
 bulsto * bulsto_new(int, double, double, double [],
                     double * (*)(double, double[]), double, int, int, FILE *);
 
-/* bulsto_print_state: Print state at time t */
+//! Prints state at time t
 void bulsto_print_state(bulsto *);
 
-/* bulsto_write_state: Write state at time t to file */
+//! Writes state at time t to file
 void bulsto_write_state(bulsto *);
 
-/* bulsto_step: Integrate over one timestep */
+//! Integrates system over one time step
 void bulsto_step(bulsto *);
 
-/* bulsto_integrate: Integrate over multiple timesteps */
+//! Integrates system over multiple timesteps
 void bulsto_integrate(bulsto *, int);
 
 #endif /* BULSTO_H */
