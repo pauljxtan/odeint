@@ -7,11 +7,12 @@
 import matplotlib
 # use the Tk backend
 matplotlib.use('TkAgg')
-
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from mpl_toolkits.mplot3d import Axes3D
 import subprocess
+import time
+
 from Tkinter import (Button, DoubleVar, END, Entry, Frame, IntVar, Label,
                      OptionMenu, StringVar, Tk, W)
 
@@ -51,7 +52,27 @@ dims = {
         "2-D Van der Pol oscillator": 2,
         }
 
-class OdeIntGui:
+state_vars = {
+        "Brusselator"               : ("x", "y"),
+        "Chen system"               : ("x", "y", "z"),
+        "Damped spring"             : ("x", "v"),
+        "Double pendulum"           : ("theta_1", "theta_2", "p_1", "p_2"),
+        "Duffing equation"          : ("x", "v"),
+        "Lorenz system"             : ("x", "y", "z"),
+        "Lotka-Volterra equations"  : ("x", "y"),
+        "Parrot system"             : ("x", "y"),
+        "Rossler system"            : ("x", "y", "z"),
+        "Symmetric top"             : ("theta", "phi", "psi", "theta_dot",
+                                       "phi_dot", "psi_dot"),
+        "Van der Pol oscillator"    : ("x", "v"),
+        "2-D Van der Pol oscillator": ("x", "y"),
+        }
+
+#class StateVars(object):
+#    pass
+
+
+class OdeIntGui(object):
     def __init__(self, master):
         self.frame = Frame(master)
         self.frame.grid()
@@ -70,9 +91,11 @@ class OdeIntGui:
 
         #--- String variables
         self.method = StringVar(self.frame_menus)
-        self.method.set("4th-order Runge-Kutta")
         self.system = StringVar(self.frame_menus)
+        # SET DEFAULTS HERE
+        self.method.set("4th-order Runge-Kutta")
         self.system.set("Lorenz system")
+        self.prev_system = self.system.get()
         #---
 
         #--- Double variables
@@ -122,34 +145,55 @@ class OdeIntGui:
                               width=5)
 
         self.label_X0 = Label(self.frame_entries, text="Initial state:")
-        self.entry_X0 = [Entry(self.frame_entries, textvariable=self.X0a,
-                               width=5),
-                         Entry(self.frame_entries, textvariable=self.X0b,
-                               width=5),
-                         Entry(self.frame_entries, textvariable=self.X0c,
-                               width=5),
-                         Entry(self.frame_entries, textvariable=self.X0d,
-                               width=5),
-                         Entry(self.frame_entries, textvariable=self.X0e,
-                               width=5),
-                         Entry(self.frame_entries, textvariable=self.X0f,
-                               width=5),]
+        self.entry_X0 = [
+            Entry(self.frame_entries, textvariable=self.X0a, width=5),
+            Entry(self.frame_entries, textvariable=self.X0b, width=5),
+            Entry(self.frame_entries, textvariable=self.X0c, width=5),
+            Entry(self.frame_entries, textvariable=self.X0d, width=5),
+            Entry(self.frame_entries, textvariable=self.X0e, width=5),
+            Entry(self.frame_entries, textvariable=self.X0f, width=5),
+            ]
 
         self.label_dt.grid(row=0, column=0)
         self.entry_dt.grid(row=0, column=1)
         self.label_t0.grid(row=0, column=2)
         self.entry_t0.grid(row=0, column=3)
         self.label_X0.grid(row=0, column=4)
-        self.entry_X0[0].grid(row=0, column=5)
-        self.entry_X0[1].grid(row=0, column=6)
+        self.entry_X0[0].grid(row=0, column=6)
+        self.entry_X0[1].grid(row=0, column=8)
         if dims[self.system.get()] >= 3:
-            self.entry_X0[2].grid(row=0, column=7)
+            self.entry_X0[2].grid(row=0, column=10)
         if dims[self.system.get()] >= 4:
-            self.entry_X0[3].grid(row=0, column=8)
+            self.entry_X0[3].grid(row=0, column=12)
         if dims[self.system.get()] >= 5:
-            self.entry_X0[4].grid(row=0, column=9)
+            self.entry_X0[4].grid(row=0, column=14)
         if dims[self.system.get()] >= 6:
-            self.entry_X0[5].grid(row=0, column=10)
+            self.entry_X0[5].grid(row=0, column=16)
+
+        self.label_X0a = Label(self.frame_entries, text="")
+        self.label_X0b = Label(self.frame_entries, text="")
+        self.label_X0c = Label(self.frame_entries, text="")
+        self.label_X0d = Label(self.frame_entries, text="")
+        self.label_X0e = Label(self.frame_entries, text="")
+        self.label_X0f = Label(self.frame_entries, text="")
+
+        self.label_X0a.grid(row=0, column=5)
+        self.label_X0b.grid(row=0, column=7)
+        self.label_X0c.grid(row=0, column=9)
+        self.label_X0d.grid(row=0, column=11)
+        self.label_X0e.grid(row=0, column=13)
+        self.label_X0f.grid(row=0, column=15)
+
+        self.label_X0a.config(text=state_vars[self.system.get()][0])
+        self.label_X0b.config(text=state_vars[self.system.get()][1])
+        if dims[self.system.get()] >= 3:
+            self.label_X0c.config(text=state_vars[self.system.get()][2])
+        if dims[self.system.get()] >= 4:
+            self.label_X0d.config(text=state_vars[self.system.get()][3])
+        if dims[self.system.get()] >= 5:
+            self.label_X0e.config(text=state_vars[self.system.get()][4])
+        if dims[self.system.get()] >= 6:
+            self.label_X0f.config(text=state_vars[self.system.get()][5])
         #---
 
         #--- Canvas subframe
@@ -171,6 +215,58 @@ class OdeIntGui:
         self.button_clear.grid(row=3, column=1)
         self.button_quit.grid(row=3, column=2)
         #---
+    
+    def menu_onclick(self, event):
+        print "%s with %s" % (self.system.get(), self.method.get())
+        
+        # Adjust number of state variables
+        self.entry_X0[0].grid_forget()
+        self.entry_X0[1].grid_forget()
+        if dims[self.prev_system] >= 3:
+            self.entry_X0[2].grid_forget()
+        if dims[self.prev_system] >= 4:
+            self.entry_X0[3].grid_forget()
+        if dims[self.prev_system] >= 5:
+            self.entry_X0[4].grid_forget()
+        if dims[self.prev_system] >= 6:
+            self.entry_X0[5].grid_forget()
+
+        self.entry_X0[0].grid(row=0, column=6)
+        self.entry_X0[1].grid(row=0, column=8)
+        if dims[self.system.get()] >= 3:
+            self.entry_X0[2].grid(row=0, column=10)
+        if dims[self.system.get()] >= 4:
+            self.entry_X0[3].grid(row=0, column=12)
+        if dims[self.system.get()] >= 5:
+            self.entry_X0[4].grid(row=0, column=14)
+        if dims[self.system.get()] >= 6:
+            self.entry_X0[5].grid(row=0, column=16)
+        
+        # Update labels for state variables
+        self.label_X0a.config(text="")
+        self.label_X0b.config(text="")
+        if dims[self.prev_system] >= 3:
+            self.label_X0c.config(text="")
+        if dims[self.prev_system] >= 4:
+            self.label_X0f.config(text="")
+        if dims[self.prev_system] >= 5:
+            self.label_X0e.config(text="")
+        if dims[self.prev_system] >= 6:
+            self.label_X0f.config(text="")
+        self.label_X0a.config(text=state_vars[self.system.get()][0])
+        self.label_X0b.config(text=state_vars[self.system.get()][1])
+        if dims[self.system.get()] >= 3:
+            self.label_X0c.config(text=state_vars[self.system.get()][2])
+        if dims[self.system.get()] >= 4:
+            self.label_X0d.config(text=state_vars[self.system.get()][3])
+        if dims[self.system.get()] >= 5:
+            self.label_X0e.config(text=state_vars[self.system.get()][4])
+        if dims[self.system.get()] >= 6:
+            self.label_X0f.config(text=state_vars[self.system.get()][5])
+
+        self.clear_figure()
+        
+        prev_system = self.system.get()
 
     def plot(self):
         cmd = ("../src/integrate %s %s -d %s -t %s "
@@ -182,19 +278,25 @@ class OdeIntGui:
             cmd += "-x %s " % self.X0c.get()
         if dims[self.system.get()] >= 4:
             cmd += "-x %s " % self.X0d.get()
+        if dims[self.system.get()] >= 5:
+            cmd += "-x %s " % self.X0e.get()
         if dims[self.system.get()] >= 6:
-            cmd += "-x %s -x %s " % (self.X0e.get(), self.X0e.get())
+            cmd += "-x %s " % self.X0f.get()
         cmd += "-n %s -v " % self.n.get()
         print cmd
         
         print "Computing..."
 
+        t0 = time.clock()
         # heard "shell=True" might not be safe?
         integration = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True)
+        t1 = time.clock()
+        print "Finished in %.9f s" % (t1 - t0)
+        
+        print "Processing data..."
         integration_stdout = integration.communicate()[0]
 
         print "Plotting..."
-
         data = []
         for line in integration_stdout.split("\n"):
             if line != "":
@@ -218,27 +320,6 @@ class OdeIntGui:
             self.graph.plot(arrays[1], arrays[2], arrays[3])
         #---
         self.canvas.draw()
-
-    def menu_onclick(self, event):
-        print "%s with %s" % (self.system.get(), self.method.get())
-        
-        # Adjust number of state variables
-        self.entry_X0[0].grid(row=0, column=5)
-        self.entry_X0[1].grid(row=0, column=6)
-        self.entry_X0[2].grid(row=0, column=7)
-        self.entry_X0[3].grid(row=0, column=8)
-        self.entry_X0[4].grid(row=0, column=9)
-        self.entry_X0[5].grid(row=0, column=10)
-        if dims[self.system.get()] < 6:
-            self.entry_X0[5].grid_forget()
-        if dims[self.system.get()] < 5:
-            self.entry_X0[4].grid_forget()
-        if dims[self.system.get()] < 4:
-            self.entry_X0[3].grid_forget()
-        if dims[self.system.get()] < 3:
-            self.entry_X0[2].grid_forget()
-
-        self.clear_figure()
 
     def clear_figure(self):
         self.figure.clear()
