@@ -1,0 +1,71 @@
+\hypertarget{structbulsto}{\section{bulsto Struct Reference}
+\label{structbulsto}\index{bulsto@{bulsto}}
+}
+
+
+A Bulirsch-\/\-Stoer integrator.  
+
+
+
+
+{\ttfamily \#include $<$bulsto.\-h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structbulsto_a4644ac965956cf8a34a102aa42882fa9}{int \hyperlink{structbulsto_a4644ac965956cf8a34a102aa42882fa9}{n\-\_\-vars}}\label{structbulsto_a4644ac965956cf8a34a102aa42882fa9}
+
+\begin{DoxyCompactList}\small\item\em Number of spatial variables. \end{DoxyCompactList}\item 
+\hypertarget{structbulsto_a36056008e687384ae776b011c92a8536}{double \hyperlink{structbulsto_a36056008e687384ae776b011c92a8536}{dt}}\label{structbulsto_a36056008e687384ae776b011c92a8536}
+
+\begin{DoxyCompactList}\small\item\em Length of timestep. \end{DoxyCompactList}\item 
+\hypertarget{structbulsto_a3553c5b225bd39d4f8e797ea958f8b3b}{double \hyperlink{structbulsto_a3553c5b225bd39d4f8e797ea958f8b3b}{t}}\label{structbulsto_a3553c5b225bd39d4f8e797ea958f8b3b}
+
+\begin{DoxyCompactList}\small\item\em Elapsed time. \end{DoxyCompactList}\item 
+\hypertarget{structbulsto_a110de2f76d66addd0c11b3c1cf896557}{double $\ast$ \hyperlink{structbulsto_a110de2f76d66addd0c11b3c1cf896557}{X}}\label{structbulsto_a110de2f76d66addd0c11b3c1cf896557}
+
+\begin{DoxyCompactList}\small\item\em Current state (at time t) \end{DoxyCompactList}\item 
+\hypertarget{structbulsto_ade5a625cad24ed4bccebf9dc4c9ce52c}{double $\ast$($\ast$ \hyperlink{structbulsto_ade5a625cad24ed4bccebf9dc4c9ce52c}{F} )(double, double\mbox{[}$\,$\mbox{]})}\label{structbulsto_ade5a625cad24ed4bccebf9dc4c9ce52c}
+
+\begin{DoxyCompactList}\small\item\em O\-D\-E vector function. \end{DoxyCompactList}\item 
+\hypertarget{structbulsto_a88b2a30854139fc04fd3763f78c1d97d}{double \hyperlink{structbulsto_a88b2a30854139fc04fd3763f78c1d97d}{delta}}\label{structbulsto_a88b2a30854139fc04fd3763f78c1d97d}
+
+\begin{DoxyCompactList}\small\item\em Target accuracy. \end{DoxyCompactList}\item 
+\hypertarget{structbulsto_a21e52ecfd0e77ee341ec29e73e871be7}{int \hyperlink{structbulsto_a21e52ecfd0e77ee341ec29e73e871be7}{verbose}}\label{structbulsto_a21e52ecfd0e77ee341ec29e73e871be7}
+
+\begin{DoxyCompactList}\small\item\em Verbose flag. \end{DoxyCompactList}\item 
+\hypertarget{structbulsto_a79adff2fa017d5b62e46beebf5af387f}{int \hyperlink{structbulsto_a79adff2fa017d5b62e46beebf5af387f}{write}}\label{structbulsto_a79adff2fa017d5b62e46beebf5af387f}
+
+\begin{DoxyCompactList}\small\item\em Write flag. \end{DoxyCompactList}\item 
+\hypertarget{structbulsto_a1bd09226c3efbaec4baa7915682b9c40}{F\-I\-L\-E $\ast$ \hyperlink{structbulsto_a1bd09226c3efbaec4baa7915682b9c40}{poutfile}}\label{structbulsto_a1bd09226c3efbaec4baa7915682b9c40}
+
+\begin{DoxyCompactList}\small\item\em Output file pointer. \end{DoxyCompactList}\item 
+\hypertarget{structbulsto_ab0f98110059509f36682188917a94e82}{int \hyperlink{structbulsto_ab0f98110059509f36682188917a94e82}{n\-\_\-steps}}\label{structbulsto_ab0f98110059509f36682188917a94e82}
+
+\begin{DoxyCompactList}\small\item\em Number of steps so far. \end{DoxyCompactList}\item 
+\hypertarget{structbulsto_a5b4eb1332886f1695feea32c643a9068}{double $\ast$ \hyperlink{structbulsto_a5b4eb1332886f1695feea32c643a9068}{epsilon}}\label{structbulsto_a5b4eb1332886f1695feea32c643a9068}
+
+\begin{DoxyCompactList}\small\item\em Array for storing intermediate data. \end{DoxyCompactList}\item 
+\hypertarget{structbulsto_ae042d246b8cc4fc2dca7eeb2b7de41a0}{double $\ast$ \hyperlink{structbulsto_ae042d246b8cc4fc2dca7eeb2b7de41a0}{X1}}\label{structbulsto_ae042d246b8cc4fc2dca7eeb2b7de41a0}
+
+\begin{DoxyCompactList}\small\item\em Array for storing intermediate data. \end{DoxyCompactList}\item 
+\hypertarget{structbulsto_a07d3f69a611b1f3d346615d8936672ce}{double $\ast$ \hyperlink{structbulsto_a07d3f69a611b1f3d346615d8936672ce}{X2}}\label{structbulsto_a07d3f69a611b1f3d346615d8936672ce}
+
+\begin{DoxyCompactList}\small\item\em Array for storing intermediate data. \end{DoxyCompactList}\item 
+\hypertarget{structbulsto_ad3ed4caf9c6fac621f0712b5162c0948}{double $\ast$ \hyperlink{structbulsto_ad3ed4caf9c6fac621f0712b5162c0948}{X\-\_\-inc}}\label{structbulsto_ad3ed4caf9c6fac621f0712b5162c0948}
+
+\begin{DoxyCompactList}\small\item\em Array for storing intermediate data. \end{DoxyCompactList}\item 
+\hypertarget{structbulsto_aa8ddc55838fa4eef090464cd6c523b1b}{double \hyperlink{structbulsto_aa8ddc55838fa4eef090464cd6c523b1b}{t\-\_\-step}}\label{structbulsto_aa8ddc55838fa4eef090464cd6c523b1b}
+
+\begin{DoxyCompactList}\small\item\em Array for storing intermediate data. \end{DoxyCompactList}\item 
+\hypertarget{structbulsto_abda965d700144ad6697fb51a52c15d19}{double $\ast$ \hyperlink{structbulsto_abda965d700144ad6697fb51a52c15d19}{X\-\_\-step}}\label{structbulsto_abda965d700144ad6697fb51a52c15d19}
+
+\begin{DoxyCompactList}\small\item\em Array for storing intermediate data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A Bulirsch-\/\-Stoer integrator. 
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{bulsto_8h}{bulsto.\-h}\end{DoxyCompactItemize}

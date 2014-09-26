@@ -1,0 +1,32 @@
+\hypertarget{fweuler_8h}{\section{include/fweuler.h File Reference}
+\label{fweuler_8h}\index{include/fweuler.\-h@{include/fweuler.\-h}}
+}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structfweuler}{fweuler}
+\begin{DoxyCompactList}\small\item\em A forward-\/\-Euler integrator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{fweuler_8h_ad1ee7fc91b9a50f96607f03dd0291732}{typedef struct \hyperlink{structfweuler}{fweuler} \hyperlink{fweuler_8h_ad1ee7fc91b9a50f96607f03dd0291732}{fweuler}}\label{fweuler_8h_ad1ee7fc91b9a50f96607f03dd0291732}
+
+\begin{DoxyCompactList}\small\item\em A forward-\/\-Euler integrator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{fweuler_8h_add39424dfff0911ec3b1ea7b8a543fd5}{\hyperlink{structfweuler}{fweuler} $\ast$ \hyperlink{fweuler_8h_add39424dfff0911ec3b1ea7b8a543fd5}{fweuler\-\_\-new} (int, double, double, double\mbox{[}$\,$\mbox{]}, double $\ast$($\ast$)(double, double\mbox{[}$\,$\mbox{]}), int, int, F\-I\-L\-E $\ast$)}\label{fweuler_8h_add39424dfff0911ec3b1ea7b8a543fd5}
+
+\begin{DoxyCompactList}\small\item\em \char`\"{}\-Constructor\char`\"{} for forward-\/\-Euler integrator \end{DoxyCompactList}\item 
+\hypertarget{fweuler_8h_a86fd9e3d73d3977d19ba618166668c03}{void \hyperlink{fweuler_8h_a86fd9e3d73d3977d19ba618166668c03}{fweuler\-\_\-print\-\_\-state} (\hyperlink{structfweuler}{fweuler} $\ast$)}\label{fweuler_8h_a86fd9e3d73d3977d19ba618166668c03}
+
+\begin{DoxyCompactList}\small\item\em Prints state at time t. \end{DoxyCompactList}\item 
+\hypertarget{fweuler_8h_a3e1aad0b75fef72ccd8f8d804cb622ef}{void \hyperlink{fweuler_8h_a3e1aad0b75fef72ccd8f8d804cb622ef}{fweuler\-\_\-write\-\_\-state} (\hyperlink{structfweuler}{fweuler} $\ast$)}\label{fweuler_8h_a3e1aad0b75fef72ccd8f8d804cb622ef}
+
+\begin{DoxyCompactList}\small\item\em Writes state at time t to file. \end{DoxyCompactList}\item 
+\hypertarget{fweuler_8h_a0db8ef2fa3df4bf41f54579b7d8dae48}{void \hyperlink{fweuler_8h_a0db8ef2fa3df4bf41f54579b7d8dae48}{fweuler\-\_\-step} (\hyperlink{structfweuler}{fweuler} $\ast$)}\label{fweuler_8h_a0db8ef2fa3df4bf41f54579b7d8dae48}
+
+\begin{DoxyCompactList}\small\item\em Integrates system over one timestep. \end{DoxyCompactList}\item 
+\hypertarget{fweuler_8h_a7445a9cd72aae877144675caab783d0a}{void \hyperlink{fweuler_8h_a7445a9cd72aae877144675caab783d0a}{fweuler\-\_\-integrate} (\hyperlink{structfweuler}{fweuler} $\ast$, int)}\label{fweuler_8h_a7445a9cd72aae877144675caab783d0a}
+
+\begin{DoxyCompactList}\small\item\em Integrates system over multiple timesteps. \end{DoxyCompactList}\end{DoxyCompactItemize}
