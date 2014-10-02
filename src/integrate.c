@@ -40,7 +40,7 @@ int main(int argc, char * argv[]) {
 
     if (argc < 2) {
         printf("\nAvailable systems to integrate are:\n");
-        printf(system_list);
+        printf("%s", system_list);
         print_usage();
         printf("\n");
         return EXIT_SUCCESS;
