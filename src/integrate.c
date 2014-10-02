@@ -151,7 +151,7 @@ func_ptr lookup_F(char * name) {
     }
     fprintf(stderr, "Invalid or no function specified\n");
     print_usage();
-    return EXIT_FAILURE;
+    exit(EXIT_FAILURE);
 }
 
 int lookup_n_vars(char * name) {
@@ -162,5 +162,5 @@ int lookup_n_vars(char * name) {
     }
     fprintf(stderr, "Invalid or no function specified\n");
     print_usage();
-    return EXIT_FAILURE;
+    exit(EXIT_FAILURE);
 }
