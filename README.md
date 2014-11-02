@@ -57,11 +57,10 @@ $ ./integrate rk4 lotka -d 0.05 -t 0.0 -x 10.0 -x 5.0 -n 1000 -v | ./plot_stdin_
 5. All set!
 
 ### GUI ###
-A Tkinter-based GUI is located in ./python/ (under construction). Requires matplotlib 1.0.0+ with the Tk backend.
+A Tkinter-based GUI is located at ./python/odeintgui.py. Requires matplotlib 1.0.0+ with the Tk backend.
 
 ### To-do ###
 * Add "kwargs" functionality for passing additional parameters (e.g. constants) to integrator
-* GUI: choose variables to plot
 
 ### Future ###
 * Adaptive methods upcoming...
