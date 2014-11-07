@@ -48,6 +48,10 @@ We can plot the time-series for each variable in real-time by piping the integra
 ```bash
 $ ./integrate rk4 lotka -d 0.05 -t 0.0 -x 10.0 -x 5.0 -n 1000 -v | ./plot_stdin_timeseries.py
 ```
+or from a data file:
+```bash
+$ ./plot_stdin_timeseries.py < lotka.dat
+```
 
 ### Adding systems ###
 1. Declare the function in ./include/eoms.h
