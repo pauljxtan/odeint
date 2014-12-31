@@ -14,7 +14,6 @@
 
 /* TODO:
  * Include "interactive mode" for choosing system and entering parameter values
- * Add delta to user arguments
  */
 
 /* Integrate the selected system */
@@ -27,7 +26,7 @@ int main(int argc, char * argv[]) {
     double dt;
     double t0;
     double * X0 = NULL;
-    double delta;
+    double delta = 0.0;
     int n_steps;
     int verbose = 0;
     int print_params = 0;
@@ -75,11 +74,13 @@ int main(int argc, char * argv[]) {
                 break;
             case 'e':
                 delta = atof(optarg);
+                break;
             case 'v':
                 verbose = 1;
                 break;
             case 'y':
                 print_params = 1;
+                break;
             case 'w':
                 write = 1;
                 break;
@@ -93,6 +94,13 @@ int main(int argc, char * argv[]) {
                 "(only %d given)\n", n_vars, i);
         return EXIT_FAILURE;
     }
+
+    /* If Bulirsch-Stoer selected, check if delta is specified and valid */
+    if (strcmp("bulsto", method) == 0 && delta <= 0.0) {
+        fprintf(stderr, "Target accuracy for Bulirsch-Stoer is not specified "
+                "or invalid\n");
+        return EXIT_FAILURE;
+    }
     
     if (print_params) {
         printf("using: %s\n", method);
@@ -104,6 +112,8 @@ int main(int argc, char * argv[]) {
             printf("X0[%d] = %f\n", i, X0[i]);
         }
         printf("n_steps = %d\n", n_steps);
+        if (strcmp("bulsto", method) == 0)
+            printf("delta = %f\n", delta);
         printf("verbose = %s\n", verbose ? "yes" : "no");
         printf("write = %s\n", write ? "yes" : "no");
         printf("outfile = %s\n", outfile);
@@ -127,7 +137,6 @@ int main(int argc, char * argv[]) {
     }
 
     else if (strcmp("bulsto", method) == 0) { 
-        //delta = 1e-6;
         bulsto * pbulsto = bulsto_new(n_vars, dt, t0, X0, lookup_F(name),
                                       delta, verbose, write, poutfile);
         bulsto_integrate(pbulsto, n_steps);
