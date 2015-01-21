@@ -203,12 +203,14 @@ double * rossler(double t, double X[]) {
 }
 // symmetric_top: the spinning symmetric top
 double * symmetric_top(double t, double X[]) {
-    const double I_1 = 3.0 / 20 * SYMTOP_M * (pow(SYMTOP_R, 2) + (pow(SYMTOP_L, 2) / 4));
-    const double I_3 = 3 / (SYMTOP_M * pow(SYMTOP_R, 2));
-    double theta = X[0], phi = X[1], psi = X[2],
-           theta_dot = X[3], phi_dot = X[4], psi_dot = X[5];
+    double theta = X[0];//, phi = X[1], psi = X[2],
+    double theta_dot = X[3], phi_dot = X[4], psi_dot = X[5];
     double theta_ddot, phi_ddot, psi_ddot;
     double * X_dot = malloc(6 * sizeof(double));
+
+    // Moments of inertia
+    const double I_1 = 3.0 / 20 * SYMTOP_M * (pow(SYMTOP_R, 2) + (pow(SYMTOP_L, 2) / 4));
+    const double I_3 = 3 / (SYMTOP_M * pow(SYMTOP_R, 2));
 
     //theta_dot = theta_dot;
     //phi_dot = phi_dot;
