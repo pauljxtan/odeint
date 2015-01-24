@@ -9,24 +9,24 @@ public class Lorenz implements Eom {
     /**
      * The number of dimensions in this system.
      */
-    public static final int N_DIMS = 3;
+    public final int N_DIMS = 3;
     /**
      * The number of constants in the system of ODEs.
      */
-    public static final int N_CONSTS = 3;
+    public final int N_CONSTS = 3;
 
     /**
      * The constant sigma.
      */
-    final double SIGMA;
+    private final double SIGMA;
     /**
      * The constant rho.
      */
-    final double RHO;
+    private final double RHO;
     /**
      * The constant beta.
      */
-    final double BETA;
+    private final double BETA;
 
     /**
      * A constructor for using default constants.
