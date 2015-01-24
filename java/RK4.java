@@ -6,7 +6,7 @@ public class RK4 extends OdeInt {
         super(system, dt, t0, X0);
     }
 
-    public void step() {
+    private void step() {
         int i;
         double[] XInc = new double[X.length];
         double[] XStep = new double[X.length];
@@ -42,5 +42,10 @@ public class RK4 extends OdeInt {
             X[i] += (K1[i] + 2.0 * K2[i] + 2.0 * K3[i] + K4[i]) / 6.0;
 
         t += dt;
+    }
+
+    public void integrate(int nSteps) {
+        while (nSteps-- > 0)
+            step();
     }
 }
