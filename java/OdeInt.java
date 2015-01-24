@@ -2,11 +2,11 @@
  * A generic integrator base class.
  */
 public class OdeInt {
-    public Eom system;
-    public double dt;
-    public double t;
-    public double[] X;
-    public double[] C;
+    protected Eom system;
+    protected double dt;
+    protected double t;
+    protected double[] X;
+    protected double[] C;
 
     /**
      * A constructor for using default constants.
@@ -21,5 +21,30 @@ public class OdeInt {
         //========== Add new mappings here ==========
         if (system.equals("lorenz")) this.system = new Lorenz();
         //===========================================
+    }
+
+    /**
+     * Returns the elapsed time.
+     */
+    public double getTime() {
+        return t;
+    }
+
+    /**
+     * Returns the system state.
+     */
+    public double[] getState() {
+        return X;
+    }
+
+    /**
+     * Returns the string-formatted time and system state.
+     */
+    public String getTimeStateStr() {
+        String str = String.format("%.6f ", t);
+        for (int i = 0; i < X.length - 1; i++)
+            str += String.format("%.6f ", X[i]);
+        str += String.format("%.6f ", X[X.length - 1]);
+        return str;
     }
 }
