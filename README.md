@@ -63,6 +63,9 @@ $ ./plot_stdin_timeseries.py < lotka.dat
 ### GUI ###
 A Tkinter-based GUI is located at ./python/odeintgui.py. Requires matplotlib 1.0.0+ with the Tk backend.
 
+### Java port ###
+A Java object-oriented implementation may be found in ./java/. Under heavy construction.
+
 ### To-do ###
 * Add "kwargs" functionality for passing additional parameters (e.g. constants) to integrator
 
