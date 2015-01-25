@@ -6,49 +6,35 @@
  * dz/dt = x * y - beta * z
  */
 public class Lorenz implements Eom {
-    /**
-     * The number of dimensions in this system.
-     */
+    /** The number of dimensions in this system. */
     public final int N_DIMS = 3;
-    /**
-     * The number of constants in the system of ODEs.
-     */
+
+    /** The number of constants in the system of ODEs. */
     public final int N_CONSTS = 3;
 
-    /**
-     * The constant sigma.
-     */
+    /** The constant sigma. */
     private final double SIGMA;
-    /**
-     * The constant rho.
-     */
+
+    /** The constant rho. */
     private final double RHO;
-    /**
-     * The constant beta.
-     */
+
+    /** The constant beta. */
     private final double BETA;
 
-    /**
-     * A constructor for using default constants.
-     */
+    /** A constructor for using default constants. */
     public Lorenz() {
         SIGMA = 10.0;
         RHO = 28.0;
         BETA = 8.0 / 3.0;
     }
     
-    /**
-     * A constructor for using specified constants.
-     */
+    /** A constructor for using specified constants. */
     public Lorenz(double[] C) {
         SIGMA = C[0];
         RHO = C[1];
         BETA = C[2];
     }
 
-    /**
-     * Evaluates the system of ODEs.
-     */
     @Override
     public double[] evaluate(double t, double[] X) {
         double x = X[0], y = X[1], z = X[2];

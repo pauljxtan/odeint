@@ -6,6 +6,7 @@ public class RK4 extends OdeInt {
         super(system, dt, t0, X0);
     }
 
+    /** Performs a single integration step. */
     private void step() {
         int i;
         double[] XInc = new double[X.length];
@@ -44,6 +45,7 @@ public class RK4 extends OdeInt {
         t += dt;
     }
 
+    /** Performs multiple integration steps. */
     public void integrate(int nSteps) {
         while (nSteps-- > 0)
             step();

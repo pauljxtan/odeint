@@ -2,10 +2,19 @@
  * A generic integrator base class.
  */
 public class OdeInt {
+    /** The system to integrate. */
     protected Eom system;
+
+    /** The length of each integration step. */
     protected double dt;
+
+    /** The time elapsed in the simulation. */
     protected double t;
+
+    /** The system state vector. */
     protected double[] X;
+
+    /** The constants in the equations of motion. */
     protected double[] C;
 
     /**
@@ -23,23 +32,17 @@ public class OdeInt {
         //===========================================
     }
 
-    /**
-     * Returns the elapsed time.
-     */
+    /** Returns the elapsed time. */
     public double getTime() {
         return t;
     }
 
-    /**
-     * Returns the system state.
-     */
+    /** Returns the system state. */
     public double[] getState() {
         return X;
     }
 
-    /**
-     * Returns the string-formatted time and system state.
-     */
+    /** Returns the string-formatted time and system state. */
     public String getTimeStateStr() {
         String str = String.format("%.6f ", t);
         for (int i = 0; i < X.length - 1; i++)
