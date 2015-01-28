@@ -46,14 +46,17 @@ class Lorenz implements Eom {
         BETA = C[2];
     }
 
+    @Override
     public int getNDims() {
         return N_DIMS;
     }
 
+    @Override
     public int getNConsts() {
         return N_CONSTS;
     }
 
+    @Override
     public double[] evaluate(double t, double[] X) {
         double x = X[0], y = X[1], z = X[2];
 
