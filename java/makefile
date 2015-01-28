@@ -1,7 +1,7 @@
 JC = javac
 JFLAGS = -g
 
-SOURCES = $(wildcard *.java)
+SOURCES = $(wildcard *.java) $(wildcard odeint/*.java)
 CLASSES = $(SOURCES:.java=.class)
 
 all : $(CLASSES)
