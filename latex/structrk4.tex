@@ -1,74 +1,73 @@
-\hypertarget{structrk4}{\section{rk4 Struct Reference}
+\hypertarget{structrk4}{}\section{rk4 Struct Reference}
 \label{structrk4}\index{rk4@{rk4}}
-}
 
 
-A classical (4th-\/order) Runge-\/\-Kutta integrator.  
+A classical (4th-\/order) Runge-\/\+Kutta integrator.  
 
 
 
 
-{\ttfamily \#include $<$rk4.\-h$>$}
+{\ttfamily \#include $<$rk4.\+h$>$}
 
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{structrk4_a1771335b8075b6c2bc2f7f365ece307b}{int \hyperlink{structrk4_a1771335b8075b6c2bc2f7f365ece307b}{n\-\_\-vars}}\label{structrk4_a1771335b8075b6c2bc2f7f365ece307b}
+\hypertarget{structrk4_a1771335b8075b6c2bc2f7f365ece307b}{}int \hyperlink{structrk4_a1771335b8075b6c2bc2f7f365ece307b}{n\+\_\+vars}\label{structrk4_a1771335b8075b6c2bc2f7f365ece307b}
 
 \begin{DoxyCompactList}\small\item\em Number of spatial variables. \end{DoxyCompactList}\item 
-\hypertarget{structrk4_a79622109dfc5eecf546f51828768d70e}{double \hyperlink{structrk4_a79622109dfc5eecf546f51828768d70e}{dt}}\label{structrk4_a79622109dfc5eecf546f51828768d70e}
+\hypertarget{structrk4_a79622109dfc5eecf546f51828768d70e}{}double \hyperlink{structrk4_a79622109dfc5eecf546f51828768d70e}{dt}\label{structrk4_a79622109dfc5eecf546f51828768d70e}
 
 \begin{DoxyCompactList}\small\item\em Length of timestep. \end{DoxyCompactList}\item 
-\hypertarget{structrk4_ab1179e509c8df420d8d9f89af1a842d3}{double \hyperlink{structrk4_ab1179e509c8df420d8d9f89af1a842d3}{t}}\label{structrk4_ab1179e509c8df420d8d9f89af1a842d3}
+\hypertarget{structrk4_ab1179e509c8df420d8d9f89af1a842d3}{}double \hyperlink{structrk4_ab1179e509c8df420d8d9f89af1a842d3}{t}\label{structrk4_ab1179e509c8df420d8d9f89af1a842d3}
 
 \begin{DoxyCompactList}\small\item\em Elapsed time. \end{DoxyCompactList}\item 
-\hypertarget{structrk4_acdd11c2d23e608d1a5b59b001c29e3fe}{double $\ast$ \hyperlink{structrk4_acdd11c2d23e608d1a5b59b001c29e3fe}{X}}\label{structrk4_acdd11c2d23e608d1a5b59b001c29e3fe}
+\hypertarget{structrk4_acdd11c2d23e608d1a5b59b001c29e3fe}{}double $\ast$ \hyperlink{structrk4_acdd11c2d23e608d1a5b59b001c29e3fe}{X}\label{structrk4_acdd11c2d23e608d1a5b59b001c29e3fe}
 
 \begin{DoxyCompactList}\small\item\em Current state (at time t) \end{DoxyCompactList}\item 
-\hypertarget{structrk4_a18efcbdf65c3b3c6409fddb26fdeb85b}{double $\ast$($\ast$ \hyperlink{structrk4_a18efcbdf65c3b3c6409fddb26fdeb85b}{F} )(double, double\mbox{[}$\,$\mbox{]})}\label{structrk4_a18efcbdf65c3b3c6409fddb26fdeb85b}
+\hypertarget{structrk4_ad7511057d017bdbfb4749504a81a791c}{}double $\ast$($\ast$ \hyperlink{structrk4_ad7511057d017bdbfb4749504a81a791c}{F} )(double, double\mbox{[}$\,$\mbox{]})\label{structrk4_ad7511057d017bdbfb4749504a81a791c}
 
-\begin{DoxyCompactList}\small\item\em O\-D\-E vector function. \end{DoxyCompactList}\item 
-\hypertarget{structrk4_af11a7c143fbea8168fb9d5d5c259e05e}{int \hyperlink{structrk4_af11a7c143fbea8168fb9d5d5c259e05e}{verbose}}\label{structrk4_af11a7c143fbea8168fb9d5d5c259e05e}
+\begin{DoxyCompactList}\small\item\em O\+D\+E vector function. \end{DoxyCompactList}\item 
+\hypertarget{structrk4_af11a7c143fbea8168fb9d5d5c259e05e}{}int \hyperlink{structrk4_af11a7c143fbea8168fb9d5d5c259e05e}{verbose}\label{structrk4_af11a7c143fbea8168fb9d5d5c259e05e}
 
 \begin{DoxyCompactList}\small\item\em Verbose flag. \end{DoxyCompactList}\item 
-\hypertarget{structrk4_a23e792b89a89229f6d7a23190c98d9d8}{int \hyperlink{structrk4_a23e792b89a89229f6d7a23190c98d9d8}{write}}\label{structrk4_a23e792b89a89229f6d7a23190c98d9d8}
+\hypertarget{structrk4_a23e792b89a89229f6d7a23190c98d9d8}{}int \hyperlink{structrk4_a23e792b89a89229f6d7a23190c98d9d8}{write}\label{structrk4_a23e792b89a89229f6d7a23190c98d9d8}
 
 \begin{DoxyCompactList}\small\item\em Write flag. \end{DoxyCompactList}\item 
-\hypertarget{structrk4_ad2b4a48f52e1ea5206a306827ba717b7}{F\-I\-L\-E $\ast$ \hyperlink{structrk4_ad2b4a48f52e1ea5206a306827ba717b7}{poutfile}}\label{structrk4_ad2b4a48f52e1ea5206a306827ba717b7}
+\hypertarget{structrk4_ad2b4a48f52e1ea5206a306827ba717b7}{}F\+I\+L\+E $\ast$ \hyperlink{structrk4_ad2b4a48f52e1ea5206a306827ba717b7}{poutfile}\label{structrk4_ad2b4a48f52e1ea5206a306827ba717b7}
 
 \begin{DoxyCompactList}\small\item\em Output file pointer. \end{DoxyCompactList}\item 
-\hypertarget{structrk4_afdb98234387428a832f96e7ccc2ec470}{int \hyperlink{structrk4_afdb98234387428a832f96e7ccc2ec470}{n\-\_\-steps}}\label{structrk4_afdb98234387428a832f96e7ccc2ec470}
+\hypertarget{structrk4_afdb98234387428a832f96e7ccc2ec470}{}int \hyperlink{structrk4_afdb98234387428a832f96e7ccc2ec470}{n\+\_\+steps}\label{structrk4_afdb98234387428a832f96e7ccc2ec470}
 
 \begin{DoxyCompactList}\small\item\em Number of steps so far. \end{DoxyCompactList}\item 
-\hypertarget{structrk4_ae34ed14cd80bff2057d6c608e8ee9073}{double $\ast$ \hyperlink{structrk4_ae34ed14cd80bff2057d6c608e8ee9073}{K1}}\label{structrk4_ae34ed14cd80bff2057d6c608e8ee9073}
+\hypertarget{structrk4_ae34ed14cd80bff2057d6c608e8ee9073}{}double $\ast$ \hyperlink{structrk4_ae34ed14cd80bff2057d6c608e8ee9073}{K1}\label{structrk4_ae34ed14cd80bff2057d6c608e8ee9073}
 
 \begin{DoxyCompactList}\small\item\em Array for storing intermediate data. \end{DoxyCompactList}\item 
-\hypertarget{structrk4_a0a27f914e752daa876b07c31afa6babf}{double $\ast$ \hyperlink{structrk4_a0a27f914e752daa876b07c31afa6babf}{K2}}\label{structrk4_a0a27f914e752daa876b07c31afa6babf}
+\hypertarget{structrk4_a0a27f914e752daa876b07c31afa6babf}{}double $\ast$ \hyperlink{structrk4_a0a27f914e752daa876b07c31afa6babf}{K2}\label{structrk4_a0a27f914e752daa876b07c31afa6babf}
 
 \begin{DoxyCompactList}\small\item\em Array for storing intermediate data. \end{DoxyCompactList}\item 
-\hypertarget{structrk4_aa0a71aaaedac1ab7b3e03be4604e1845}{double $\ast$ \hyperlink{structrk4_aa0a71aaaedac1ab7b3e03be4604e1845}{K3}}\label{structrk4_aa0a71aaaedac1ab7b3e03be4604e1845}
+\hypertarget{structrk4_aa0a71aaaedac1ab7b3e03be4604e1845}{}double $\ast$ \hyperlink{structrk4_aa0a71aaaedac1ab7b3e03be4604e1845}{K3}\label{structrk4_aa0a71aaaedac1ab7b3e03be4604e1845}
 
 \begin{DoxyCompactList}\small\item\em Array for storing intermediate data. \end{DoxyCompactList}\item 
-\hypertarget{structrk4_af94017f53b4c629e055a14f8c48572dd}{double $\ast$ \hyperlink{structrk4_af94017f53b4c629e055a14f8c48572dd}{K4}}\label{structrk4_af94017f53b4c629e055a14f8c48572dd}
+\hypertarget{structrk4_af94017f53b4c629e055a14f8c48572dd}{}double $\ast$ \hyperlink{structrk4_af94017f53b4c629e055a14f8c48572dd}{K4}\label{structrk4_af94017f53b4c629e055a14f8c48572dd}
 
 \begin{DoxyCompactList}\small\item\em Array for storing intermediate data. \end{DoxyCompactList}\item 
-\hypertarget{structrk4_ab4c880c62f39a795976c2b0746accfa0}{double \hyperlink{structrk4_ab4c880c62f39a795976c2b0746accfa0}{t\-\_\-inc}}\label{structrk4_ab4c880c62f39a795976c2b0746accfa0}
+\hypertarget{structrk4_ab4c880c62f39a795976c2b0746accfa0}{}double \hyperlink{structrk4_ab4c880c62f39a795976c2b0746accfa0}{t\+\_\+inc}\label{structrk4_ab4c880c62f39a795976c2b0746accfa0}
 
 \begin{DoxyCompactList}\small\item\em Array for storing intermediate data. \end{DoxyCompactList}\item 
-\hypertarget{structrk4_add018b35c5fce3c60568f5f417247fba}{double $\ast$ \hyperlink{structrk4_add018b35c5fce3c60568f5f417247fba}{X\-\_\-inc}}\label{structrk4_add018b35c5fce3c60568f5f417247fba}
+\hypertarget{structrk4_add018b35c5fce3c60568f5f417247fba}{}double $\ast$ \hyperlink{structrk4_add018b35c5fce3c60568f5f417247fba}{X\+\_\+inc}\label{structrk4_add018b35c5fce3c60568f5f417247fba}
 
 \begin{DoxyCompactList}\small\item\em Array for storing intermediate data. \end{DoxyCompactList}\item 
-\hypertarget{structrk4_a1cd740ec71a9b29db5f7e66977e3f141}{double \hyperlink{structrk4_a1cd740ec71a9b29db5f7e66977e3f141}{t\-\_\-step}}\label{structrk4_a1cd740ec71a9b29db5f7e66977e3f141}
+\hypertarget{structrk4_a1cd740ec71a9b29db5f7e66977e3f141}{}double \hyperlink{structrk4_a1cd740ec71a9b29db5f7e66977e3f141}{t\+\_\+step}\label{structrk4_a1cd740ec71a9b29db5f7e66977e3f141}
 
 \begin{DoxyCompactList}\small\item\em Array for storing intermediate data. \end{DoxyCompactList}\item 
-\hypertarget{structrk4_aad92411111f3087775236a631b4ede78}{double $\ast$ \hyperlink{structrk4_aad92411111f3087775236a631b4ede78}{X\-\_\-step}}\label{structrk4_aad92411111f3087775236a631b4ede78}
+\hypertarget{structrk4_aad92411111f3087775236a631b4ede78}{}double $\ast$ \hyperlink{structrk4_aad92411111f3087775236a631b4ede78}{X\+\_\+step}\label{structrk4_aad92411111f3087775236a631b4ede78}
 
 \begin{DoxyCompactList}\small\item\em Array for storing intermediate data. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-A classical (4th-\/order) Runge-\/\-Kutta integrator. 
+A classical (4th-\/order) Runge-\/\+Kutta integrator. 
 
-The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-include/\hyperlink{rk4_8h}{rk4.\-h}\end{DoxyCompactItemize}
+include/\hyperlink{rk4_8h}{rk4.\+h}\end{DoxyCompactItemize}
