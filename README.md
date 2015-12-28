@@ -1,7 +1,7 @@
 # odeint #
-An easily extensible ODE integrator in C. Mainly a learning project for practicing with pointers, memory allocation and data structures (used to emulate an integrator "class"); not really optimized for efficiency. 
+An easily extensible ODE integrator in C. Mainly a learning project for practicing with pointers, memory allocation and data structures; not really optimized for efficiency, but being C, is still fairly fast.
 
-Documented for Doxygen in Qt style -- see http://pauljxtan.github.io/odeint.
+Documented for Doxygen in Qt style -- pages hosted at http://pauljxtan.github.io/odeint.
 
 ### Currently implemented ###
 Method (struct_name):
@@ -61,13 +61,11 @@ $ ./plot_stdin_timeseries.py < lotka.dat
 5. All set!
 
 ### GUI ###
-A Tkinter-based GUI is located at ./python/odeintgui.py. Requires matplotlib 1.0.0+ with the Tk backend.
+A Tkinter-based GUI is located at ./python/odeintgui.py. Requires Python and matplotlib 1.0.0+ with the Tk backend. Try it out!
 
-### Java port ###
-A Java object-oriented implementation may be found in ./java/. Under heavy construction.
+### Java version ###
+A Java object-oriented implementation may be found in ./java/. Working, but still under heavy construction.
 
 ### To-do ###
 * Add "kwargs" functionality for passing additional parameters (e.g. constants) to integrator
-
-### Future ###
-* Adaptive methods upcoming...
+* Adaptive methods
