@@ -2,71 +2,101 @@
 \label{structrk4}\index{rk4@{rk4}}
 
 
-A classical (4th-\/order) Runge-\/\+Kutta integrator.  
-
-
-
-
 {\ttfamily \#include $<$rk4.\+h$>$}
 
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{structrk4_a1771335b8075b6c2bc2f7f365ece307b}{}int \hyperlink{structrk4_a1771335b8075b6c2bc2f7f365ece307b}{n\+\_\+vars}\label{structrk4_a1771335b8075b6c2bc2f7f365ece307b}
+\hypertarget{structrk4_a1771335b8075b6c2bc2f7f365ece307b}{}int {\bfseries n\+\_\+vars}\label{structrk4_a1771335b8075b6c2bc2f7f365ece307b}
 
-\begin{DoxyCompactList}\small\item\em Number of spatial variables. \end{DoxyCompactList}\item 
-\hypertarget{structrk4_a79622109dfc5eecf546f51828768d70e}{}double \hyperlink{structrk4_a79622109dfc5eecf546f51828768d70e}{dt}\label{structrk4_a79622109dfc5eecf546f51828768d70e}
-
-\begin{DoxyCompactList}\small\item\em Length of timestep. \end{DoxyCompactList}\item 
-\hypertarget{structrk4_ab1179e509c8df420d8d9f89af1a842d3}{}double \hyperlink{structrk4_ab1179e509c8df420d8d9f89af1a842d3}{t}\label{structrk4_ab1179e509c8df420d8d9f89af1a842d3}
-
-\begin{DoxyCompactList}\small\item\em Elapsed time. \end{DoxyCompactList}\item 
-\hypertarget{structrk4_acdd11c2d23e608d1a5b59b001c29e3fe}{}double $\ast$ \hyperlink{structrk4_acdd11c2d23e608d1a5b59b001c29e3fe}{X}\label{structrk4_acdd11c2d23e608d1a5b59b001c29e3fe}
-
-\begin{DoxyCompactList}\small\item\em Current state (at time t) \end{DoxyCompactList}\item 
-\hypertarget{structrk4_ad7511057d017bdbfb4749504a81a791c}{}double $\ast$($\ast$ \hyperlink{structrk4_ad7511057d017bdbfb4749504a81a791c}{F} )(double, double\mbox{[}$\,$\mbox{]})\label{structrk4_ad7511057d017bdbfb4749504a81a791c}
-
-\begin{DoxyCompactList}\small\item\em O\+D\+E vector function. \end{DoxyCompactList}\item 
-\hypertarget{structrk4_af11a7c143fbea8168fb9d5d5c259e05e}{}int \hyperlink{structrk4_af11a7c143fbea8168fb9d5d5c259e05e}{verbose}\label{structrk4_af11a7c143fbea8168fb9d5d5c259e05e}
-
-\begin{DoxyCompactList}\small\item\em Verbose flag. \end{DoxyCompactList}\item 
-\hypertarget{structrk4_a23e792b89a89229f6d7a23190c98d9d8}{}int \hyperlink{structrk4_a23e792b89a89229f6d7a23190c98d9d8}{write}\label{structrk4_a23e792b89a89229f6d7a23190c98d9d8}
-
-\begin{DoxyCompactList}\small\item\em Write flag. \end{DoxyCompactList}\item 
-\hypertarget{structrk4_ad2b4a48f52e1ea5206a306827ba717b7}{}F\+I\+L\+E $\ast$ \hyperlink{structrk4_ad2b4a48f52e1ea5206a306827ba717b7}{poutfile}\label{structrk4_ad2b4a48f52e1ea5206a306827ba717b7}
-
-\begin{DoxyCompactList}\small\item\em Output file pointer. \end{DoxyCompactList}\item 
-\hypertarget{structrk4_afdb98234387428a832f96e7ccc2ec470}{}int \hyperlink{structrk4_afdb98234387428a832f96e7ccc2ec470}{n\+\_\+steps}\label{structrk4_afdb98234387428a832f96e7ccc2ec470}
-
-\begin{DoxyCompactList}\small\item\em Number of steps so far. \end{DoxyCompactList}\item 
-\hypertarget{structrk4_ae34ed14cd80bff2057d6c608e8ee9073}{}double $\ast$ \hyperlink{structrk4_ae34ed14cd80bff2057d6c608e8ee9073}{K1}\label{structrk4_ae34ed14cd80bff2057d6c608e8ee9073}
-
-\begin{DoxyCompactList}\small\item\em Array for storing intermediate data. \end{DoxyCompactList}\item 
-\hypertarget{structrk4_a0a27f914e752daa876b07c31afa6babf}{}double $\ast$ \hyperlink{structrk4_a0a27f914e752daa876b07c31afa6babf}{K2}\label{structrk4_a0a27f914e752daa876b07c31afa6babf}
-
-\begin{DoxyCompactList}\small\item\em Array for storing intermediate data. \end{DoxyCompactList}\item 
-\hypertarget{structrk4_aa0a71aaaedac1ab7b3e03be4604e1845}{}double $\ast$ \hyperlink{structrk4_aa0a71aaaedac1ab7b3e03be4604e1845}{K3}\label{structrk4_aa0a71aaaedac1ab7b3e03be4604e1845}
-
-\begin{DoxyCompactList}\small\item\em Array for storing intermediate data. \end{DoxyCompactList}\item 
-\hypertarget{structrk4_af94017f53b4c629e055a14f8c48572dd}{}double $\ast$ \hyperlink{structrk4_af94017f53b4c629e055a14f8c48572dd}{K4}\label{structrk4_af94017f53b4c629e055a14f8c48572dd}
-
-\begin{DoxyCompactList}\small\item\em Array for storing intermediate data. \end{DoxyCompactList}\item 
-\hypertarget{structrk4_ab4c880c62f39a795976c2b0746accfa0}{}double \hyperlink{structrk4_ab4c880c62f39a795976c2b0746accfa0}{t\+\_\+inc}\label{structrk4_ab4c880c62f39a795976c2b0746accfa0}
-
-\begin{DoxyCompactList}\small\item\em Array for storing intermediate data. \end{DoxyCompactList}\item 
-\hypertarget{structrk4_add018b35c5fce3c60568f5f417247fba}{}double $\ast$ \hyperlink{structrk4_add018b35c5fce3c60568f5f417247fba}{X\+\_\+inc}\label{structrk4_add018b35c5fce3c60568f5f417247fba}
-
-\begin{DoxyCompactList}\small\item\em Array for storing intermediate data. \end{DoxyCompactList}\item 
-\hypertarget{structrk4_a1cd740ec71a9b29db5f7e66977e3f141}{}double \hyperlink{structrk4_a1cd740ec71a9b29db5f7e66977e3f141}{t\+\_\+step}\label{structrk4_a1cd740ec71a9b29db5f7e66977e3f141}
-
-\begin{DoxyCompactList}\small\item\em Array for storing intermediate data. \end{DoxyCompactList}\item 
-\hypertarget{structrk4_aad92411111f3087775236a631b4ede78}{}double $\ast$ \hyperlink{structrk4_aad92411111f3087775236a631b4ede78}{X\+\_\+step}\label{structrk4_aad92411111f3087775236a631b4ede78}
-
-\begin{DoxyCompactList}\small\item\em Array for storing intermediate data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\item 
+double \hyperlink{structrk4_a79622109dfc5eecf546f51828768d70e}{dt}
+\item 
+double \hyperlink{structrk4_ab1179e509c8df420d8d9f89af1a842d3}{t}
+\item 
+double $\ast$ \hyperlink{structrk4_acdd11c2d23e608d1a5b59b001c29e3fe}{X}
+\item 
+double $\ast$($\ast$ \hyperlink{structrk4_ad7511057d017bdbfb4749504a81a791c}{F} )(double, double\mbox{[}$\,$\mbox{]})
+\item 
+int \hyperlink{structrk4_af11a7c143fbea8168fb9d5d5c259e05e}{verbose}
+\item 
+int \hyperlink{structrk4_a23e792b89a89229f6d7a23190c98d9d8}{write}
+\item 
+F\+I\+L\+E $\ast$ \hyperlink{structrk4_ad2b4a48f52e1ea5206a306827ba717b7}{poutfile}
+\item 
+int \hyperlink{structrk4_afdb98234387428a832f96e7ccc2ec470}{n\+\_\+steps}
+\item 
+double $\ast$ \hyperlink{structrk4_ae34ed14cd80bff2057d6c608e8ee9073}{K1}
+\item 
+double $\ast$ \hyperlink{structrk4_a0a27f914e752daa876b07c31afa6babf}{K2}
+\item 
+double $\ast$ \hyperlink{structrk4_aa0a71aaaedac1ab7b3e03be4604e1845}{K3}
+\item 
+double $\ast$ \hyperlink{structrk4_af94017f53b4c629e055a14f8c48572dd}{K4}
+\item 
+double \hyperlink{structrk4_ab4c880c62f39a795976c2b0746accfa0}{t\+\_\+inc}
+\item 
+double $\ast$ \hyperlink{structrk4_add018b35c5fce3c60568f5f417247fba}{X\+\_\+inc}
+\item 
+double \hyperlink{structrk4_a1cd740ec71a9b29db5f7e66977e3f141}{t\+\_\+step}
+\item 
+double $\ast$ \hyperlink{structrk4_aad92411111f3087775236a631b4ede78}{X\+\_\+step}
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-A classical (4th-\/order) Runge-\/\+Kutta integrator. 
+A classical (4th-\/order) Runge-\/\+Kutta integrator 
+
+\subsection{Member Data Documentation}
+\hypertarget{structrk4_a79622109dfc5eecf546f51828768d70e}{}\index{rk4@{rk4}!dt@{dt}}
+\index{dt@{dt}!rk4@{rk4}}
+\subsubsection[{dt}]{\setlength{\rightskip}{0pt plus 5cm}double rk4\+::dt}\label{structrk4_a79622109dfc5eecf546f51828768d70e}
+Number of spatial variables \hypertarget{structrk4_ad7511057d017bdbfb4749504a81a791c}{}\index{rk4@{rk4}!F@{F}}
+\index{F@{F}!rk4@{rk4}}
+\subsubsection[{F}]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$($\ast$ rk4\+::\+F) (double, double\mbox{[}$\,$\mbox{]})}\label{structrk4_ad7511057d017bdbfb4749504a81a791c}
+Current state (at time t) \hypertarget{structrk4_ae34ed14cd80bff2057d6c608e8ee9073}{}\index{rk4@{rk4}!K1@{K1}}
+\index{K1@{K1}!rk4@{rk4}}
+\subsubsection[{K1}]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ rk4\+::\+K1}\label{structrk4_ae34ed14cd80bff2057d6c608e8ee9073}
+Number of steps so far \hypertarget{structrk4_a0a27f914e752daa876b07c31afa6babf}{}\index{rk4@{rk4}!K2@{K2}}
+\index{K2@{K2}!rk4@{rk4}}
+\subsubsection[{K2}]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ rk4\+::\+K2}\label{structrk4_a0a27f914e752daa876b07c31afa6babf}
+Array for storing intermediate data \hypertarget{structrk4_aa0a71aaaedac1ab7b3e03be4604e1845}{}\index{rk4@{rk4}!K3@{K3}}
+\index{K3@{K3}!rk4@{rk4}}
+\subsubsection[{K3}]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ rk4\+::\+K3}\label{structrk4_aa0a71aaaedac1ab7b3e03be4604e1845}
+Array for storing intermediate data \hypertarget{structrk4_af94017f53b4c629e055a14f8c48572dd}{}\index{rk4@{rk4}!K4@{K4}}
+\index{K4@{K4}!rk4@{rk4}}
+\subsubsection[{K4}]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ rk4\+::\+K4}\label{structrk4_af94017f53b4c629e055a14f8c48572dd}
+Array for storing intermediate data \hypertarget{structrk4_afdb98234387428a832f96e7ccc2ec470}{}\index{rk4@{rk4}!n\+\_\+steps@{n\+\_\+steps}}
+\index{n\+\_\+steps@{n\+\_\+steps}!rk4@{rk4}}
+\subsubsection[{n\+\_\+steps}]{\setlength{\rightskip}{0pt plus 5cm}int rk4\+::n\+\_\+steps}\label{structrk4_afdb98234387428a832f96e7ccc2ec470}
+Output file pointer \hypertarget{structrk4_ad2b4a48f52e1ea5206a306827ba717b7}{}\index{rk4@{rk4}!poutfile@{poutfile}}
+\index{poutfile@{poutfile}!rk4@{rk4}}
+\subsubsection[{poutfile}]{\setlength{\rightskip}{0pt plus 5cm}F\+I\+L\+E$\ast$ rk4\+::poutfile}\label{structrk4_ad2b4a48f52e1ea5206a306827ba717b7}
+Write flag \hypertarget{structrk4_ab1179e509c8df420d8d9f89af1a842d3}{}\index{rk4@{rk4}!t@{t}}
+\index{t@{t}!rk4@{rk4}}
+\subsubsection[{t}]{\setlength{\rightskip}{0pt plus 5cm}double rk4\+::t}\label{structrk4_ab1179e509c8df420d8d9f89af1a842d3}
+Length of timestep \hypertarget{structrk4_ab4c880c62f39a795976c2b0746accfa0}{}\index{rk4@{rk4}!t\+\_\+inc@{t\+\_\+inc}}
+\index{t\+\_\+inc@{t\+\_\+inc}!rk4@{rk4}}
+\subsubsection[{t\+\_\+inc}]{\setlength{\rightskip}{0pt plus 5cm}double rk4\+::t\+\_\+inc}\label{structrk4_ab4c880c62f39a795976c2b0746accfa0}
+Array for storing intermediate data \hypertarget{structrk4_a1cd740ec71a9b29db5f7e66977e3f141}{}\index{rk4@{rk4}!t\+\_\+step@{t\+\_\+step}}
+\index{t\+\_\+step@{t\+\_\+step}!rk4@{rk4}}
+\subsubsection[{t\+\_\+step}]{\setlength{\rightskip}{0pt plus 5cm}double rk4\+::t\+\_\+step}\label{structrk4_a1cd740ec71a9b29db5f7e66977e3f141}
+Array for storing intermediate data \hypertarget{structrk4_af11a7c143fbea8168fb9d5d5c259e05e}{}\index{rk4@{rk4}!verbose@{verbose}}
+\index{verbose@{verbose}!rk4@{rk4}}
+\subsubsection[{verbose}]{\setlength{\rightskip}{0pt plus 5cm}int rk4\+::verbose}\label{structrk4_af11a7c143fbea8168fb9d5d5c259e05e}
+O\+D\+E vector function \hypertarget{structrk4_a23e792b89a89229f6d7a23190c98d9d8}{}\index{rk4@{rk4}!write@{write}}
+\index{write@{write}!rk4@{rk4}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}int rk4\+::write}\label{structrk4_a23e792b89a89229f6d7a23190c98d9d8}
+Verbose flag \hypertarget{structrk4_acdd11c2d23e608d1a5b59b001c29e3fe}{}\index{rk4@{rk4}!X@{X}}
+\index{X@{X}!rk4@{rk4}}
+\subsubsection[{X}]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ rk4\+::\+X}\label{structrk4_acdd11c2d23e608d1a5b59b001c29e3fe}
+Elapsed time \hypertarget{structrk4_add018b35c5fce3c60568f5f417247fba}{}\index{rk4@{rk4}!X\+\_\+inc@{X\+\_\+inc}}
+\index{X\+\_\+inc@{X\+\_\+inc}!rk4@{rk4}}
+\subsubsection[{X\+\_\+inc}]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ rk4\+::\+X\+\_\+inc}\label{structrk4_add018b35c5fce3c60568f5f417247fba}
+Array for storing intermediate data \hypertarget{structrk4_aad92411111f3087775236a631b4ede78}{}\index{rk4@{rk4}!X\+\_\+step@{X\+\_\+step}}
+\index{X\+\_\+step@{X\+\_\+step}!rk4@{rk4}}
+\subsubsection[{X\+\_\+step}]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ rk4\+::\+X\+\_\+step}\label{structrk4_aad92411111f3087775236a631b4ede78}
+Array for storing intermediate data 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

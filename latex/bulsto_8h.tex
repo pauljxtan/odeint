@@ -4,28 +4,76 @@
 \begin{DoxyCompactItemize}
 \item 
 struct \hyperlink{structbulsto}{bulsto}
-\begin{DoxyCompactList}\small\item\em A Bulirsch-\/\+Stoer integrator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{DoxyCompactItemize}
 \subsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{bulsto_8h_aaf527107977d8253f0de93fa07053bd4}{}typedef struct \hyperlink{structbulsto}{bulsto} \hyperlink{bulsto_8h_aaf527107977d8253f0de93fa07053bd4}{bulsto}\label{bulsto_8h_aaf527107977d8253f0de93fa07053bd4}
-
-\begin{DoxyCompactList}\small\item\em A Bulirsch-\/\+Stoer integrator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+typedef struct \hyperlink{structbulsto}{bulsto} \hyperlink{bulsto_8h_aaf527107977d8253f0de93fa07053bd4}{bulsto}
+\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{bulsto_8h_a38ccf01056377e8d417f19f381cf22ea}{}\hyperlink{structbulsto}{bulsto} $\ast$ \hyperlink{bulsto_8h_a38ccf01056377e8d417f19f381cf22ea}{bulsto\+\_\+new} (int, double, double, double\mbox{[}$\,$\mbox{]}, double $\ast$($\ast$)(double, double\mbox{[}$\,$\mbox{]}), double, int, int, F\+I\+L\+E $\ast$)\label{bulsto_8h_a38ccf01056377e8d417f19f381cf22ea}
+\hyperlink{structbulsto}{bulsto} $\ast$ \hyperlink{bulsto_8h_a38ccf01056377e8d417f19f381cf22ea}{bulsto\+\_\+new} (int, double, double, double\mbox{[}$\,$\mbox{]}, double $\ast$($\ast$)(double, double\mbox{[}$\,$\mbox{]}), double, int, int, F\+I\+L\+E $\ast$)
+\item 
+void \hyperlink{bulsto_8h_a418d5109d679e5926ecf989553ba0bcf}{bulsto\+\_\+print\+\_\+state} (\hyperlink{structbulsto}{bulsto} $\ast$)
+\item 
+void \hyperlink{bulsto_8h_a530c28b6782017b45e2ba3f0aac654a4}{bulsto\+\_\+write\+\_\+state} (\hyperlink{structbulsto}{bulsto} $\ast$)
+\item 
+void \hyperlink{bulsto_8h_ab5700d84f0b47b8b670c43dd823ae0a4}{bulsto\+\_\+step} (\hyperlink{structbulsto}{bulsto} $\ast$)
+\item 
+void \hyperlink{bulsto_8h_a2d57fa0e64007ea84631c3db1036a1d9}{bulsto\+\_\+integrate} (\hyperlink{structbulsto}{bulsto} $\ast$, int)
+\end{DoxyCompactItemize}
 
-\begin{DoxyCompactList}\small\item\em \char`\"{}\+Constructor\char`\"{} for Bulirsch-\/\+Stoer integrator \end{DoxyCompactList}\item 
-\hypertarget{bulsto_8h_a418d5109d679e5926ecf989553ba0bcf}{}void \hyperlink{bulsto_8h_a418d5109d679e5926ecf989553ba0bcf}{bulsto\+\_\+print\+\_\+state} (\hyperlink{structbulsto}{bulsto} $\ast$)\label{bulsto_8h_a418d5109d679e5926ecf989553ba0bcf}
 
-\begin{DoxyCompactList}\small\item\em Prints state at time t. \end{DoxyCompactList}\item 
-\hypertarget{bulsto_8h_a530c28b6782017b45e2ba3f0aac654a4}{}void \hyperlink{bulsto_8h_a530c28b6782017b45e2ba3f0aac654a4}{bulsto\+\_\+write\+\_\+state} (\hyperlink{structbulsto}{bulsto} $\ast$)\label{bulsto_8h_a530c28b6782017b45e2ba3f0aac654a4}
+\subsection{Typedef Documentation}
+\hypertarget{bulsto_8h_aaf527107977d8253f0de93fa07053bd4}{}\index{bulsto.\+h@{bulsto.\+h}!bulsto@{bulsto}}
+\index{bulsto@{bulsto}!bulsto.\+h@{bulsto.\+h}}
+\subsubsection[{bulsto}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf bulsto}  {\bf bulsto}}\label{bulsto_8h_aaf527107977d8253f0de93fa07053bd4}
+A Bulirsch-\/\+Stoer integrator 
 
-\begin{DoxyCompactList}\small\item\em Writes state at time t to file. \end{DoxyCompactList}\item 
-\hypertarget{bulsto_8h_ab5700d84f0b47b8b670c43dd823ae0a4}{}void \hyperlink{bulsto_8h_ab5700d84f0b47b8b670c43dd823ae0a4}{bulsto\+\_\+step} (\hyperlink{structbulsto}{bulsto} $\ast$)\label{bulsto_8h_ab5700d84f0b47b8b670c43dd823ae0a4}
-
-\begin{DoxyCompactList}\small\item\em Integrates system over one time step. \end{DoxyCompactList}\item 
-\hypertarget{bulsto_8h_a2d57fa0e64007ea84631c3db1036a1d9}{}void \hyperlink{bulsto_8h_a2d57fa0e64007ea84631c3db1036a1d9}{bulsto\+\_\+integrate} (\hyperlink{structbulsto}{bulsto} $\ast$, int)\label{bulsto_8h_a2d57fa0e64007ea84631c3db1036a1d9}
-
-\begin{DoxyCompactList}\small\item\em Integrates system over multiple timesteps. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection{Function Documentation}
+\hypertarget{bulsto_8h_a2d57fa0e64007ea84631c3db1036a1d9}{}\index{bulsto.\+h@{bulsto.\+h}!bulsto\+\_\+integrate@{bulsto\+\_\+integrate}}
+\index{bulsto\+\_\+integrate@{bulsto\+\_\+integrate}!bulsto.\+h@{bulsto.\+h}}
+\subsubsection[{bulsto\+\_\+integrate}]{\setlength{\rightskip}{0pt plus 5cm}void bulsto\+\_\+integrate (
+\begin{DoxyParamCaption}
+\item[{{\bf bulsto} $\ast$}]{, }
+\item[{int}]{}
+\end{DoxyParamCaption}
+)}\label{bulsto_8h_a2d57fa0e64007ea84631c3db1036a1d9}
+Integrates system over multiple timesteps \hypertarget{bulsto_8h_a38ccf01056377e8d417f19f381cf22ea}{}\index{bulsto.\+h@{bulsto.\+h}!bulsto\+\_\+new@{bulsto\+\_\+new}}
+\index{bulsto\+\_\+new@{bulsto\+\_\+new}!bulsto.\+h@{bulsto.\+h}}
+\subsubsection[{bulsto\+\_\+new}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bulsto}$\ast$ bulsto\+\_\+new (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{double}]{, }
+\item[{double}]{, }
+\item[{double}]{\mbox{[}$\,$\mbox{]}, }
+\item[{double $\ast$}]{$\ast$)(double, double\mbox{[}$\,$\mbox{]}, }
+\item[{double}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{F\+I\+L\+E $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{bulsto_8h_a38ccf01056377e8d417f19f381cf22ea}
+Initializes a Bulirsch-\/\+Stoer integrator \hypertarget{bulsto_8h_a418d5109d679e5926ecf989553ba0bcf}{}\index{bulsto.\+h@{bulsto.\+h}!bulsto\+\_\+print\+\_\+state@{bulsto\+\_\+print\+\_\+state}}
+\index{bulsto\+\_\+print\+\_\+state@{bulsto\+\_\+print\+\_\+state}!bulsto.\+h@{bulsto.\+h}}
+\subsubsection[{bulsto\+\_\+print\+\_\+state}]{\setlength{\rightskip}{0pt plus 5cm}void bulsto\+\_\+print\+\_\+state (
+\begin{DoxyParamCaption}
+\item[{{\bf bulsto} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{bulsto_8h_a418d5109d679e5926ecf989553ba0bcf}
+Prints state at time t \hypertarget{bulsto_8h_ab5700d84f0b47b8b670c43dd823ae0a4}{}\index{bulsto.\+h@{bulsto.\+h}!bulsto\+\_\+step@{bulsto\+\_\+step}}
+\index{bulsto\+\_\+step@{bulsto\+\_\+step}!bulsto.\+h@{bulsto.\+h}}
+\subsubsection[{bulsto\+\_\+step}]{\setlength{\rightskip}{0pt plus 5cm}void bulsto\+\_\+step (
+\begin{DoxyParamCaption}
+\item[{{\bf bulsto} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{bulsto_8h_ab5700d84f0b47b8b670c43dd823ae0a4}
+Integrates system over one time step \hypertarget{bulsto_8h_a530c28b6782017b45e2ba3f0aac654a4}{}\index{bulsto.\+h@{bulsto.\+h}!bulsto\+\_\+write\+\_\+state@{bulsto\+\_\+write\+\_\+state}}
+\index{bulsto\+\_\+write\+\_\+state@{bulsto\+\_\+write\+\_\+state}!bulsto.\+h@{bulsto.\+h}}
+\subsubsection[{bulsto\+\_\+write\+\_\+state}]{\setlength{\rightskip}{0pt plus 5cm}void bulsto\+\_\+write\+\_\+state (
+\begin{DoxyParamCaption}
+\item[{{\bf bulsto} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{bulsto_8h_a530c28b6782017b45e2ba3f0aac654a4}
+Writes state at time t to file 

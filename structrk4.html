@@ -89,85 +89,258 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>A classical (4th-order) Runge-Kutta integrator.  
- <a href="structrk4.html#details">More...</a></p>
-
 <p><code>#include &lt;<a class="el" href="rk4_8h_source.html">rk4.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a1771335b8075b6c2bc2f7f365ece307b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1771335b8075b6c2bc2f7f365ece307b"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrk4.html#a1771335b8075b6c2bc2f7f365ece307b">n_vars</a></td></tr>
-<tr class="memdesc:a1771335b8075b6c2bc2f7f365ece307b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of spatial variables. <br /></td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>n_vars</b></td></tr>
 <tr class="separator:a1771335b8075b6c2bc2f7f365ece307b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79622109dfc5eecf546f51828768d70e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a79622109dfc5eecf546f51828768d70e"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrk4.html#a79622109dfc5eecf546f51828768d70e">dt</a></td></tr>
-<tr class="memdesc:a79622109dfc5eecf546f51828768d70e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Length of timestep. <br /></td></tr>
+<tr class="memitem:a79622109dfc5eecf546f51828768d70e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrk4.html#a79622109dfc5eecf546f51828768d70e">dt</a></td></tr>
 <tr class="separator:a79622109dfc5eecf546f51828768d70e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1179e509c8df420d8d9f89af1a842d3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab1179e509c8df420d8d9f89af1a842d3"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrk4.html#ab1179e509c8df420d8d9f89af1a842d3">t</a></td></tr>
-<tr class="memdesc:ab1179e509c8df420d8d9f89af1a842d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Elapsed time. <br /></td></tr>
+<tr class="memitem:ab1179e509c8df420d8d9f89af1a842d3"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrk4.html#ab1179e509c8df420d8d9f89af1a842d3">t</a></td></tr>
 <tr class="separator:ab1179e509c8df420d8d9f89af1a842d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acdd11c2d23e608d1a5b59b001c29e3fe"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acdd11c2d23e608d1a5b59b001c29e3fe"></a>
-double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrk4.html#acdd11c2d23e608d1a5b59b001c29e3fe">X</a></td></tr>
-<tr class="memdesc:acdd11c2d23e608d1a5b59b001c29e3fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current state (at time t) <br /></td></tr>
+<tr class="memitem:acdd11c2d23e608d1a5b59b001c29e3fe"><td class="memItemLeft" align="right" valign="top">double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrk4.html#acdd11c2d23e608d1a5b59b001c29e3fe">X</a></td></tr>
 <tr class="separator:acdd11c2d23e608d1a5b59b001c29e3fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7511057d017bdbfb4749504a81a791c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad7511057d017bdbfb4749504a81a791c"></a>
-double *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrk4.html#ad7511057d017bdbfb4749504a81a791c">F</a> )(double, double[])</td></tr>
-<tr class="memdesc:ad7511057d017bdbfb4749504a81a791c"><td class="mdescLeft">&#160;</td><td class="mdescRight">ODE vector function. <br /></td></tr>
+<tr class="memitem:ad7511057d017bdbfb4749504a81a791c"><td class="memItemLeft" align="right" valign="top">double *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrk4.html#ad7511057d017bdbfb4749504a81a791c">F</a> )(double, double[])</td></tr>
 <tr class="separator:ad7511057d017bdbfb4749504a81a791c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af11a7c143fbea8168fb9d5d5c259e05e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af11a7c143fbea8168fb9d5d5c259e05e"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrk4.html#af11a7c143fbea8168fb9d5d5c259e05e">verbose</a></td></tr>
-<tr class="memdesc:af11a7c143fbea8168fb9d5d5c259e05e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verbose flag. <br /></td></tr>
+<tr class="memitem:af11a7c143fbea8168fb9d5d5c259e05e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrk4.html#af11a7c143fbea8168fb9d5d5c259e05e">verbose</a></td></tr>
 <tr class="separator:af11a7c143fbea8168fb9d5d5c259e05e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a23e792b89a89229f6d7a23190c98d9d8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a23e792b89a89229f6d7a23190c98d9d8"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrk4.html#a23e792b89a89229f6d7a23190c98d9d8">write</a></td></tr>
-<tr class="memdesc:a23e792b89a89229f6d7a23190c98d9d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write flag. <br /></td></tr>
+<tr class="memitem:a23e792b89a89229f6d7a23190c98d9d8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrk4.html#a23e792b89a89229f6d7a23190c98d9d8">write</a></td></tr>
 <tr class="separator:a23e792b89a89229f6d7a23190c98d9d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2b4a48f52e1ea5206a306827ba717b7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad2b4a48f52e1ea5206a306827ba717b7"></a>
-FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrk4.html#ad2b4a48f52e1ea5206a306827ba717b7">poutfile</a></td></tr>
-<tr class="memdesc:ad2b4a48f52e1ea5206a306827ba717b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output file pointer. <br /></td></tr>
+<tr class="memitem:ad2b4a48f52e1ea5206a306827ba717b7"><td class="memItemLeft" align="right" valign="top">FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrk4.html#ad2b4a48f52e1ea5206a306827ba717b7">poutfile</a></td></tr>
 <tr class="separator:ad2b4a48f52e1ea5206a306827ba717b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afdb98234387428a832f96e7ccc2ec470"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afdb98234387428a832f96e7ccc2ec470"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrk4.html#afdb98234387428a832f96e7ccc2ec470">n_steps</a></td></tr>
-<tr class="memdesc:afdb98234387428a832f96e7ccc2ec470"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of steps so far. <br /></td></tr>
+<tr class="memitem:afdb98234387428a832f96e7ccc2ec470"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrk4.html#afdb98234387428a832f96e7ccc2ec470">n_steps</a></td></tr>
 <tr class="separator:afdb98234387428a832f96e7ccc2ec470"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae34ed14cd80bff2057d6c608e8ee9073"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae34ed14cd80bff2057d6c608e8ee9073"></a>
-double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrk4.html#ae34ed14cd80bff2057d6c608e8ee9073">K1</a></td></tr>
-<tr class="memdesc:ae34ed14cd80bff2057d6c608e8ee9073"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array for storing intermediate data. <br /></td></tr>
+<tr class="memitem:ae34ed14cd80bff2057d6c608e8ee9073"><td class="memItemLeft" align="right" valign="top">double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrk4.html#ae34ed14cd80bff2057d6c608e8ee9073">K1</a></td></tr>
 <tr class="separator:ae34ed14cd80bff2057d6c608e8ee9073"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a27f914e752daa876b07c31afa6babf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0a27f914e752daa876b07c31afa6babf"></a>
-double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrk4.html#a0a27f914e752daa876b07c31afa6babf">K2</a></td></tr>
-<tr class="memdesc:a0a27f914e752daa876b07c31afa6babf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array for storing intermediate data. <br /></td></tr>
+<tr class="memitem:a0a27f914e752daa876b07c31afa6babf"><td class="memItemLeft" align="right" valign="top">double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrk4.html#a0a27f914e752daa876b07c31afa6babf">K2</a></td></tr>
 <tr class="separator:a0a27f914e752daa876b07c31afa6babf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0a71aaaedac1ab7b3e03be4604e1845"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa0a71aaaedac1ab7b3e03be4604e1845"></a>
-double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrk4.html#aa0a71aaaedac1ab7b3e03be4604e1845">K3</a></td></tr>
-<tr class="memdesc:aa0a71aaaedac1ab7b3e03be4604e1845"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array for storing intermediate data. <br /></td></tr>
+<tr class="memitem:aa0a71aaaedac1ab7b3e03be4604e1845"><td class="memItemLeft" align="right" valign="top">double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrk4.html#aa0a71aaaedac1ab7b3e03be4604e1845">K3</a></td></tr>
 <tr class="separator:aa0a71aaaedac1ab7b3e03be4604e1845"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af94017f53b4c629e055a14f8c48572dd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af94017f53b4c629e055a14f8c48572dd"></a>
-double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrk4.html#af94017f53b4c629e055a14f8c48572dd">K4</a></td></tr>
-<tr class="memdesc:af94017f53b4c629e055a14f8c48572dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array for storing intermediate data. <br /></td></tr>
+<tr class="memitem:af94017f53b4c629e055a14f8c48572dd"><td class="memItemLeft" align="right" valign="top">double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrk4.html#af94017f53b4c629e055a14f8c48572dd">K4</a></td></tr>
 <tr class="separator:af94017f53b4c629e055a14f8c48572dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4c880c62f39a795976c2b0746accfa0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab4c880c62f39a795976c2b0746accfa0"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrk4.html#ab4c880c62f39a795976c2b0746accfa0">t_inc</a></td></tr>
-<tr class="memdesc:ab4c880c62f39a795976c2b0746accfa0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array for storing intermediate data. <br /></td></tr>
+<tr class="memitem:ab4c880c62f39a795976c2b0746accfa0"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrk4.html#ab4c880c62f39a795976c2b0746accfa0">t_inc</a></td></tr>
 <tr class="separator:ab4c880c62f39a795976c2b0746accfa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add018b35c5fce3c60568f5f417247fba"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="add018b35c5fce3c60568f5f417247fba"></a>
-double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrk4.html#add018b35c5fce3c60568f5f417247fba">X_inc</a></td></tr>
-<tr class="memdesc:add018b35c5fce3c60568f5f417247fba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array for storing intermediate data. <br /></td></tr>
+<tr class="memitem:add018b35c5fce3c60568f5f417247fba"><td class="memItemLeft" align="right" valign="top">double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrk4.html#add018b35c5fce3c60568f5f417247fba">X_inc</a></td></tr>
 <tr class="separator:add018b35c5fce3c60568f5f417247fba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1cd740ec71a9b29db5f7e66977e3f141"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1cd740ec71a9b29db5f7e66977e3f141"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrk4.html#a1cd740ec71a9b29db5f7e66977e3f141">t_step</a></td></tr>
-<tr class="memdesc:a1cd740ec71a9b29db5f7e66977e3f141"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array for storing intermediate data. <br /></td></tr>
+<tr class="memitem:a1cd740ec71a9b29db5f7e66977e3f141"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrk4.html#a1cd740ec71a9b29db5f7e66977e3f141">t_step</a></td></tr>
 <tr class="separator:a1cd740ec71a9b29db5f7e66977e3f141"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad92411111f3087775236a631b4ede78"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aad92411111f3087775236a631b4ede78"></a>
-double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrk4.html#aad92411111f3087775236a631b4ede78">X_step</a></td></tr>
-<tr class="memdesc:aad92411111f3087775236a631b4ede78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array for storing intermediate data. <br /></td></tr>
+<tr class="memitem:aad92411111f3087775236a631b4ede78"><td class="memItemLeft" align="right" valign="top">double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrk4.html#aad92411111f3087775236a631b4ede78">X_step</a></td></tr>
 <tr class="separator:aad92411111f3087775236a631b4ede78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A classical (4th-order) Runge-Kutta integrator. </p>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
+<div class="textblock"><p>A classical (4th-order) Runge-Kutta integrator </p>
+</div><h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a79622109dfc5eecf546f51828768d70e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double rk4::dt</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Number of spatial variables </p>
+
+</div>
+</div>
+<a class="anchor" id="ad7511057d017bdbfb4749504a81a791c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double*(* rk4::F) (double, double[])</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Current state (at time t) </p>
+
+</div>
+</div>
+<a class="anchor" id="ae34ed14cd80bff2057d6c608e8ee9073"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double* rk4::K1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Number of steps so far </p>
+
+</div>
+</div>
+<a class="anchor" id="a0a27f914e752daa876b07c31afa6babf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double* rk4::K2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Array for storing intermediate data </p>
+
+</div>
+</div>
+<a class="anchor" id="aa0a71aaaedac1ab7b3e03be4604e1845"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double* rk4::K3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Array for storing intermediate data </p>
+
+</div>
+</div>
+<a class="anchor" id="af94017f53b4c629e055a14f8c48572dd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double* rk4::K4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Array for storing intermediate data </p>
+
+</div>
+</div>
+<a class="anchor" id="afdb98234387428a832f96e7ccc2ec470"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int rk4::n_steps</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Output file pointer </p>
+
+</div>
+</div>
+<a class="anchor" id="ad2b4a48f52e1ea5206a306827ba717b7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FILE* rk4::poutfile</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Write flag </p>
+
+</div>
+</div>
+<a class="anchor" id="ab1179e509c8df420d8d9f89af1a842d3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double rk4::t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Length of timestep </p>
+
+</div>
+</div>
+<a class="anchor" id="ab4c880c62f39a795976c2b0746accfa0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double rk4::t_inc</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Array for storing intermediate data </p>
+
+</div>
+</div>
+<a class="anchor" id="a1cd740ec71a9b29db5f7e66977e3f141"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double rk4::t_step</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Array for storing intermediate data </p>
+
+</div>
+</div>
+<a class="anchor" id="af11a7c143fbea8168fb9d5d5c259e05e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int rk4::verbose</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>ODE vector function </p>
+
+</div>
+</div>
+<a class="anchor" id="a23e792b89a89229f6d7a23190c98d9d8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int rk4::write</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Verbose flag </p>
+
+</div>
+</div>
+<a class="anchor" id="acdd11c2d23e608d1a5b59b001c29e3fe"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double* rk4::X</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Elapsed time </p>
+
+</div>
+</div>
+<a class="anchor" id="add018b35c5fce3c60568f5f417247fba"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double* rk4::X_inc</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Array for storing intermediate data </p>
+
+</div>
+</div>
+<a class="anchor" id="aad92411111f3087775236a631b4ede78"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double* rk4::X_step</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Array for storing intermediate data </p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
 <li>include/<a class="el" href="rk4_8h_source.html">rk4.h</a></li>
 </ul>
 </div><!-- contents -->

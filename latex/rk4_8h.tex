@@ -4,28 +4,75 @@
 \begin{DoxyCompactItemize}
 \item 
 struct \hyperlink{structrk4}{rk4}
-\begin{DoxyCompactList}\small\item\em A classical (4th-\/order) Runge-\/\+Kutta integrator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{DoxyCompactItemize}
 \subsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{rk4_8h_a5b79b124a0293481ea4c3e6ec03cef6b}{}typedef struct \hyperlink{structrk4}{rk4} \hyperlink{rk4_8h_a5b79b124a0293481ea4c3e6ec03cef6b}{rk4}\label{rk4_8h_a5b79b124a0293481ea4c3e6ec03cef6b}
-
-\begin{DoxyCompactList}\small\item\em A classical (4th-\/order) Runge-\/\+Kutta integrator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+typedef struct \hyperlink{structrk4}{rk4} \hyperlink{rk4_8h_a5b79b124a0293481ea4c3e6ec03cef6b}{rk4}
+\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{rk4_8h_a119558a02facc5979cd4b15aa035cf4e}{}\hyperlink{structrk4}{rk4} $\ast$ \hyperlink{rk4_8h_a119558a02facc5979cd4b15aa035cf4e}{rk4\+\_\+new} (int, double, double, double\mbox{[}$\,$\mbox{]}, double $\ast$($\ast$)(double, double\mbox{[}$\,$\mbox{]}), int, int, F\+I\+L\+E $\ast$)\label{rk4_8h_a119558a02facc5979cd4b15aa035cf4e}
+\hyperlink{structrk4}{rk4} $\ast$ \hyperlink{rk4_8h_a119558a02facc5979cd4b15aa035cf4e}{rk4\+\_\+new} (int, double, double, double\mbox{[}$\,$\mbox{]}, double $\ast$($\ast$)(double, double\mbox{[}$\,$\mbox{]}), int, int, F\+I\+L\+E $\ast$)
+\item 
+void \hyperlink{rk4_8h_adf6b7ae7800e3713ed89bd482705fe7e}{rk4\+\_\+print\+\_\+state} (\hyperlink{structrk4}{rk4} $\ast$)
+\item 
+void \hyperlink{rk4_8h_ae028b3f08a933739c02d3488643cf664}{rk4\+\_\+write\+\_\+state} (\hyperlink{structrk4}{rk4} $\ast$)
+\item 
+void \hyperlink{rk4_8h_aa12be04e0ac1f703eb62d22647a11b20}{rk4\+\_\+step} (\hyperlink{structrk4}{rk4} $\ast$)
+\item 
+void \hyperlink{rk4_8h_af11752a8e40fa27132af32d697ba1ebd}{rk4\+\_\+integrate} (\hyperlink{structrk4}{rk4} $\ast$, int)
+\end{DoxyCompactItemize}
 
-\begin{DoxyCompactList}\small\item\em \char`\"{}\+Constructor\char`\"{} for R\+K4 integrator \end{DoxyCompactList}\item 
-\hypertarget{rk4_8h_adf6b7ae7800e3713ed89bd482705fe7e}{}void \hyperlink{rk4_8h_adf6b7ae7800e3713ed89bd482705fe7e}{rk4\+\_\+print\+\_\+state} (\hyperlink{structrk4}{rk4} $\ast$)\label{rk4_8h_adf6b7ae7800e3713ed89bd482705fe7e}
 
-\begin{DoxyCompactList}\small\item\em Prints state at time t. \end{DoxyCompactList}\item 
-\hypertarget{rk4_8h_ae028b3f08a933739c02d3488643cf664}{}void \hyperlink{rk4_8h_ae028b3f08a933739c02d3488643cf664}{rk4\+\_\+write\+\_\+state} (\hyperlink{structrk4}{rk4} $\ast$)\label{rk4_8h_ae028b3f08a933739c02d3488643cf664}
+\subsection{Typedef Documentation}
+\hypertarget{rk4_8h_a5b79b124a0293481ea4c3e6ec03cef6b}{}\index{rk4.\+h@{rk4.\+h}!rk4@{rk4}}
+\index{rk4@{rk4}!rk4.\+h@{rk4.\+h}}
+\subsubsection[{rk4}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf rk4}  {\bf rk4}}\label{rk4_8h_a5b79b124a0293481ea4c3e6ec03cef6b}
+A classical (4th-\/order) Runge-\/\+Kutta integrator 
 
-\begin{DoxyCompactList}\small\item\em Writes state at time t to file. \end{DoxyCompactList}\item 
-\hypertarget{rk4_8h_aa12be04e0ac1f703eb62d22647a11b20}{}void \hyperlink{rk4_8h_aa12be04e0ac1f703eb62d22647a11b20}{rk4\+\_\+step} (\hyperlink{structrk4}{rk4} $\ast$)\label{rk4_8h_aa12be04e0ac1f703eb62d22647a11b20}
-
-\begin{DoxyCompactList}\small\item\em Integrates system over one timestep. \end{DoxyCompactList}\item 
-\hypertarget{rk4_8h_af11752a8e40fa27132af32d697ba1ebd}{}void \hyperlink{rk4_8h_af11752a8e40fa27132af32d697ba1ebd}{rk4\+\_\+integrate} (\hyperlink{structrk4}{rk4} $\ast$, int)\label{rk4_8h_af11752a8e40fa27132af32d697ba1ebd}
-
-\begin{DoxyCompactList}\small\item\em Integrates system over multiple timesteps. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection{Function Documentation}
+\hypertarget{rk4_8h_af11752a8e40fa27132af32d697ba1ebd}{}\index{rk4.\+h@{rk4.\+h}!rk4\+\_\+integrate@{rk4\+\_\+integrate}}
+\index{rk4\+\_\+integrate@{rk4\+\_\+integrate}!rk4.\+h@{rk4.\+h}}
+\subsubsection[{rk4\+\_\+integrate}]{\setlength{\rightskip}{0pt plus 5cm}void rk4\+\_\+integrate (
+\begin{DoxyParamCaption}
+\item[{{\bf rk4} $\ast$}]{, }
+\item[{int}]{}
+\end{DoxyParamCaption}
+)}\label{rk4_8h_af11752a8e40fa27132af32d697ba1ebd}
+Integrates system over multiple timesteps \hypertarget{rk4_8h_a119558a02facc5979cd4b15aa035cf4e}{}\index{rk4.\+h@{rk4.\+h}!rk4\+\_\+new@{rk4\+\_\+new}}
+\index{rk4\+\_\+new@{rk4\+\_\+new}!rk4.\+h@{rk4.\+h}}
+\subsubsection[{rk4\+\_\+new}]{\setlength{\rightskip}{0pt plus 5cm}{\bf rk4}$\ast$ rk4\+\_\+new (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{double}]{, }
+\item[{double}]{, }
+\item[{double}]{\mbox{[}$\,$\mbox{]}, }
+\item[{double $\ast$}]{$\ast$)(double, double\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{F\+I\+L\+E $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{rk4_8h_a119558a02facc5979cd4b15aa035cf4e}
+Initializes a R\+K4 integrator \hypertarget{rk4_8h_adf6b7ae7800e3713ed89bd482705fe7e}{}\index{rk4.\+h@{rk4.\+h}!rk4\+\_\+print\+\_\+state@{rk4\+\_\+print\+\_\+state}}
+\index{rk4\+\_\+print\+\_\+state@{rk4\+\_\+print\+\_\+state}!rk4.\+h@{rk4.\+h}}
+\subsubsection[{rk4\+\_\+print\+\_\+state}]{\setlength{\rightskip}{0pt plus 5cm}void rk4\+\_\+print\+\_\+state (
+\begin{DoxyParamCaption}
+\item[{{\bf rk4} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{rk4_8h_adf6b7ae7800e3713ed89bd482705fe7e}
+Prints state at time t \hypertarget{rk4_8h_aa12be04e0ac1f703eb62d22647a11b20}{}\index{rk4.\+h@{rk4.\+h}!rk4\+\_\+step@{rk4\+\_\+step}}
+\index{rk4\+\_\+step@{rk4\+\_\+step}!rk4.\+h@{rk4.\+h}}
+\subsubsection[{rk4\+\_\+step}]{\setlength{\rightskip}{0pt plus 5cm}void rk4\+\_\+step (
+\begin{DoxyParamCaption}
+\item[{{\bf rk4} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{rk4_8h_aa12be04e0ac1f703eb62d22647a11b20}
+Integrates system over one timestep \hypertarget{rk4_8h_ae028b3f08a933739c02d3488643cf664}{}\index{rk4.\+h@{rk4.\+h}!rk4\+\_\+write\+\_\+state@{rk4\+\_\+write\+\_\+state}}
+\index{rk4\+\_\+write\+\_\+state@{rk4\+\_\+write\+\_\+state}!rk4.\+h@{rk4.\+h}}
+\subsubsection[{rk4\+\_\+write\+\_\+state}]{\setlength{\rightskip}{0pt plus 5cm}void rk4\+\_\+write\+\_\+state (
+\begin{DoxyParamCaption}
+\item[{{\bf rk4} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{rk4_8h_ae028b3f08a933739c02d3488643cf664}
+Writes state at time t to file 
