@@ -45,35 +45,35 @@ static const double SYMTOP_R = 1.0; /*!< Symmetric top: radius */
 
 static const double VANDERPOL_MU = 4.0; /*!< Van der Pol oscillator: nonlinearity & strength of damping */
 
-//! The Brusselator
+/*! The Brusselator */
 double * brusselator(double, double []);
-//! The Chen system
+/*! The Chen system */
 double * chen(double, double []);
-//! The damped spring
+/*! The damped spring */
 double * damped_spring(double, double []);
-//! The double pendulum
+/*! The double pendulum */
 double * double_pendulum(double, double []);
-//! The Duffing equation
+/*! The Duffing equation */
 double * duffing(double, double []);
-//! The Lorenz system
+/*! The Lorenz system */
 double * lorenz(double, double []);
-//! The Lotka-Volterra equations
+/*! The Lotka-Volterra equations */
 double * lotka(double, double []);
-//! The parrot system
+/*! The parrot system */
 double * parrot(double, double []);
-//! The Rossler system (Borelli & Coleman 1987)
+/*! The Rossler system (Borelli & Coleman 1987) */
 double * rossler(double, double []);
-//! The symmetric top
+/*! The symmetric top */
 double * symmetric_top(double, double []);
-//! The van der Pol oscillator
+/*! The van der Pol oscillator */
 double * vanderpol(double, double []);
-//! The 2-D van der Pol oscillator
+/*! The 2-D van der Pol oscillator */
 double * vanderpol2d(double, double []);
 
-//! Pointer type for ODE functions
+/*! Pointer type for ODE functions */
 typedef double * (* func_ptr)(double, double[]);
 
-//! Stores system properties for easy access
+/*! Stores system properties for easy access */
 typedef struct function_table {
     char * name; /*!< Name of system */
     int n_vars;  /*!< Number of dimensions */
@@ -83,6 +83,5 @@ typedef struct function_table {
 extern function_table func_table[]; /*!< Function table */
 
 extern char * system_list; /*!< List of systems and their corresponding parameters */
-
 
 #endif /* EOMS.H */
